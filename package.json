@@ -1,0 +1,32 @@
+{
+  "name": "mana",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "doppler run -- next dev",
+    "build": "next build",
+    "generate": "doppler run -- gqty generate",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^4.6.12",
+    "@gqty/react": "^2.2.0-alpha-445c0456.0",
+    "@types/node": "18.11.11",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
+    "eslint": "8.29.0",
+    "eslint-config-next": "13.0.6",
+    "gqty": "^2.1.1",
+    "graphql": "^16.6.0",
+    "latest": "^0.2.0",
+    "next": "13.0.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "reshaped": "file:node_modules_offline/reshaped-react-v1.9.0.tgz",
+    "typescript": "4.9.4"
+  },
+  "devDependencies": {
+    "@gqty/cli": "^3.3.0"
+  }
+}
