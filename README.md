@@ -1,6 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Enterprise App development finally made easy.
+
+## Features
+Frontend & Backend: Nextjs
+
+Secret Manager: Doppler
+
+UI Components: Reshaped
+
+Database: Fauna
+
+IDE: VS Code with Gitpod
 
 ## Getting Started
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/{{ repository.name }})
 
 First, run the development server:
 
