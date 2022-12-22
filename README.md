@@ -1,37 +1,39 @@
 Enterprise App development finally made easy.
 
-## Features
-Frontend & Backend: Nextjs
+# Features
+## Frontend & Backend | [Nextjs](https://swiy.co/nextjs)
 
-Secret Manager: Doppler
+## Env & Secret Manager | [Doppler](https://swiy.co/doppler)
+All env & secrets will be managed at one place, and provided to your development environment, Repository (e.g. GitHub) and your hosting platform (e.g. Vercel, Cloudflare Pages...). If one of your team members leaves the team, or you have a secret breach, you can rotate your secrets with one click.
 
-UI Components: Reshaped
+## UI Components | [Reshaped](https://swiy.co/reshaped-docs)
+Design library with native **Design Token** support and Figma files for prototyping.
 
-Database: Fauna
+## Database: [Fauna](https://swiy.co/fauna)
 
-IDE: VS Code with Gitpod
+## Components: [Bit](https://swiy.co/bit)
 
-## Getting Started
+## IDE: VS Code with [Gitpod](https://swiy.co/gitpod) 
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/{{ repository.name }})
+you can use Gitpod 50 hours per month for free
 
-First, run the development server:
+# Getting Started
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Gitpod
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install the Gitpod Plugin
+[Chrome](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki) |
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/gitpod/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+and create a [Gitpod account](https://swiy.co/gitpod)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Doppler
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Create a [Doppler account](https://swiy.co/doppler-login)
 
-## Learn More
+Create a [Project and environment](https://swiy.co/doppler-docs). Take the name of the project and the slug from the environment and add it in the [.gitpod.yml](.gitpod.yml#L10)
+
+# Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
