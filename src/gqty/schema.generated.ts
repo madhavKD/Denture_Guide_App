@@ -56,6 +56,162 @@ export enum Area {
   TOOTH__ROOT__ORAL = "TOOTH__ROOT__ORAL",
 }
 
+export enum CAT_Country {
+  AT = "AT",
+  CH = "CH",
+  DE = "DE",
+  FR = "FR",
+  US = "US",
+}
+
+export enum CAT_Currency {
+  CHF = "CHF",
+  DOLLAR = "DOLLAR",
+  EURO = "EURO",
+}
+
+export enum CAT_Implant_Level {
+  BONE = "BONE",
+  TISSUE = "TISSUE",
+}
+
+export interface CAT_ImplantsInput {
+  engaging: Scalars["Boolean"];
+  guided: Scalars["Boolean"];
+  insertionPost: CAT_InsertionPost;
+  level: CAT_Implant_Level;
+  localizations: Array<InputMaybe<CAT_Implants_LocalizationsInput>>;
+  material: CAT_Material;
+  measurements: CAT_Implants_MeasurementsInput;
+  plattformSwitching: Scalars["Boolean"];
+  sterility: Scalars["Boolean"];
+}
+
+/** 'CAT_Implants_E' input values */
+export interface CAT_Implants_EInput {
+  engaging: Scalars["Boolean"];
+  guided: Scalars["Boolean"];
+  insertionPost: CAT_InsertionPost;
+  level: CAT_Implant_Level;
+  localizations: Array<InputMaybe<CAT_Implants_Localizations_EInput>>;
+  material: CAT_Material;
+  measurements: CAT_Implants_Measurements_EInput;
+  plattformSwitching: Scalars["Boolean"];
+  sterility: Scalars["Boolean"];
+}
+
+export interface CAT_Implants_LocalizationsInput {
+  customAttributes?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  description?: InputMaybe<Scalars["String"]>;
+  locale: CAT_Locale;
+  name: Scalars["String"];
+  prices: Array<InputMaybe<CAT_PricesInput>>;
+  summary: Scalars["String"];
+}
+
+/** 'CAT_Implants_Localizations_E' input values */
+export interface CAT_Implants_Localizations_EInput {
+  customAttributes?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  description?: InputMaybe<Scalars["String"]>;
+  locale: CAT_Locale;
+  name: Scalars["String"];
+  prices: Array<InputMaybe<CAT_Prices_EInput>>;
+  summary: Scalars["String"];
+}
+
+export interface CAT_Implants_MeasurementsInput {
+  diameterApical: Scalars["Float"];
+  diameterPf: Scalars["Float"];
+  length: Scalars["Float"];
+  lengthNeck: Scalars["Float"];
+  thread: Scalars["String"];
+  weight: Scalars["Float"];
+}
+
+/** 'CAT_Implants_Measurements_E' input values */
+export interface CAT_Implants_Measurements_EInput {
+  diameterApical: Scalars["Float"];
+  diameterPf: Scalars["Float"];
+  length: Scalars["Float"];
+  lengthNeck: Scalars["Float"];
+  thread: Scalars["String"];
+  weight: Scalars["Float"];
+}
+
+export enum CAT_InsertionPost {
+  SCREW_MOUNTED = "SCREW_MOUNTED",
+  SNAP_IN_MOUNTED = "SNAP_IN_MOUNTED",
+}
+
+export enum CAT_Locale {
+  DE = "DE",
+  EN = "EN",
+  FR = "FR",
+}
+
+export interface CAT_ManufacturerAndProductInput {
+  manufacturer: CAT_ManufacturerInput;
+  product: CAT_ProductInput;
+}
+
+export interface CAT_ManufacturerInput {
+  name: Scalars["String"];
+}
+
+export enum CAT_Material {
+  CERAMIC = "CERAMIC",
+  TITANIUM = "TITANIUM",
+}
+
+export interface CAT_PricesInput {
+  amount: Scalars["Float"];
+  country?: InputMaybe<CAT_Country>;
+  currency: CAT_Currency;
+  validFrom: Scalars["Time"];
+  validTo?: InputMaybe<Scalars["Time"]>;
+}
+
+/** 'CAT_Prices_E' input values */
+export interface CAT_Prices_EInput {
+  amount: Scalars["Float"];
+  country?: InputMaybe<CAT_Country>;
+  currency: CAT_Currency;
+  validFrom: Scalars["Time"];
+  validTo?: InputMaybe<Scalars["Time"]>;
+}
+
+export interface CAT_ProductInput {
+  id: Scalars["String"];
+  implant?: InputMaybe<CAT_ImplantsInput>;
+  status: CAT_Product_Status;
+  validFrom: Scalars["Time"];
+  validTo?: InputMaybe<Scalars["Time"]>;
+}
+
+export enum CAT_Product_Status {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+  DRAFT = "DRAFT",
+}
+
+/** 'CAT_Products' input values */
+export interface CAT_ProductsInput {
+  id: Scalars["String"];
+  implant?: InputMaybe<CAT_Implants_EInput>;
+  manufacturer?: InputMaybe<CAT_ProductsManufacturerRelation>;
+  status: CAT_Product_Status;
+  validFrom: Scalars["Time"];
+  validTo?: InputMaybe<Scalars["Time"]>;
+}
+
+/** Allow manipulating the relationship between the types 'CAT_Products' and 'CAT_Manufacturer' using the field 'CAT_Products.manufacturer'. */
+export interface CAT_ProductsManufacturerRelation {
+  /** Connect a document of type 'CAT_Manufacturer' with the current document using its ID. */
+  connect?: InputMaybe<Scalars["ID"]>;
+  /** Create a document of type 'CAT_Manufacturer' and associate it with the current document. */
+  create?: InputMaybe<CAT_ManufacturerInput>;
+}
+
 /** 'CLS_Address_E' input values */
 export interface CLS_Address_EInput {
   city: Scalars["String"];
@@ -225,22 +381,6 @@ export enum CLS_Type {
   PRACTICE = "PRACTICE",
 }
 
-export enum Depth {
-  DEPTH__LVL_1 = "DEPTH__LVL_1",
-  DEPTH__LVL_2 = "DEPTH__LVL_2",
-  DEPTH__LVL_3 = "DEPTH__LVL_3",
-  DEPTH__LVL_4 = "DEPTH__LVL_4",
-  DEPTH__LVL_5 = "DEPTH__LVL_5",
-  DEPTH__LVL_6 = "DEPTH__LVL_6",
-  DEPTH__LVL_7 = "DEPTH__LVL_7",
-  DEPTH__LVL_8 = "DEPTH__LVL_8",
-  DEPTH__LVL_9 = "DEPTH__LVL_9",
-  DEPTH__LVL_10 = "DEPTH__LVL_10",
-  DEPTH__LVL_11 = "DEPTH__LVL_11",
-  DEPTH__LVL_12 = "DEPTH__LVL_12",
-  DEPTH__LVL_13 = "DEPTH__LVL_13",
-}
-
 export interface HES_AddMedicalFindingToDentalStatusInput {
   createdBy: Scalars["ID"];
   findings: Array<InputMaybe<HES_Findings_EInput>>;
@@ -296,7 +436,6 @@ export interface HES_DentalStatusPatientRelation {
   create?: InputMaybe<USR_UserInput>;
 }
 
-/** 'HES_Findings_E' input values */
 export interface HES_Findings_EInput {
   area?: InputMaybe<Scalars["String"]>;
   areaPrefixes?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
@@ -347,7 +486,6 @@ export interface HES_Note_EEditedByRelation {
   disconnect?: InputMaybe<Scalars["Boolean"]>;
 }
 
-/** 'HES_Note_E' input values */
 export interface HES_Note_EInput {
   createdAt?: InputMaybe<Scalars["Time"]>;
   createdBy: Scalars["ID"];
@@ -407,6 +545,65 @@ export interface ORC_History_EUpdatedByRelation {
   create?: InputMaybe<USR_UserInput>;
   /** If true, disconnects this document from 'USR_User' */
   disconnect?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** 'CAT_Implants_E' input values */
+export interface PartialUpdateCAT_Implants_EInput {
+  engaging?: InputMaybe<Scalars["Boolean"]>;
+  guided?: InputMaybe<Scalars["Boolean"]>;
+  insertionPost?: InputMaybe<CAT_InsertionPost>;
+  level?: InputMaybe<CAT_Implant_Level>;
+  localizations?: InputMaybe<
+    Array<InputMaybe<PartialUpdateCAT_Implants_Localizations_EInput>>
+  >;
+  material?: InputMaybe<CAT_Material>;
+  measurements?: InputMaybe<PartialUpdateCAT_Implants_Measurements_EInput>;
+  plattformSwitching?: InputMaybe<Scalars["Boolean"]>;
+  sterility?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** 'CAT_Implants_Localizations_E' input values */
+export interface PartialUpdateCAT_Implants_Localizations_EInput {
+  customAttributes?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  description?: InputMaybe<Scalars["String"]>;
+  locale?: InputMaybe<CAT_Locale>;
+  name?: InputMaybe<Scalars["String"]>;
+  prices?: InputMaybe<Array<InputMaybe<PartialUpdateCAT_Prices_EInput>>>;
+  summary?: InputMaybe<Scalars["String"]>;
+}
+
+/** 'CAT_Implants_Measurements_E' input values */
+export interface PartialUpdateCAT_Implants_Measurements_EInput {
+  diameterApical?: InputMaybe<Scalars["Float"]>;
+  diameterPf?: InputMaybe<Scalars["Float"]>;
+  length?: InputMaybe<Scalars["Float"]>;
+  lengthNeck?: InputMaybe<Scalars["Float"]>;
+  thread?: InputMaybe<Scalars["String"]>;
+  weight?: InputMaybe<Scalars["Float"]>;
+}
+
+/** 'CAT_Manufacturer' input values */
+export interface PartialUpdateCAT_ManufacturerInput {
+  name?: InputMaybe<Scalars["String"]>;
+}
+
+/** 'CAT_Prices_E' input values */
+export interface PartialUpdateCAT_Prices_EInput {
+  amount?: InputMaybe<Scalars["Float"]>;
+  country?: InputMaybe<CAT_Country>;
+  currency?: InputMaybe<CAT_Currency>;
+  validFrom?: InputMaybe<Scalars["Time"]>;
+  validTo?: InputMaybe<Scalars["Time"]>;
+}
+
+/** 'CAT_Products' input values */
+export interface PartialUpdateCAT_ProductsInput {
+  id?: InputMaybe<Scalars["String"]>;
+  implant?: InputMaybe<PartialUpdateCAT_Implants_EInput>;
+  manufacturer?: InputMaybe<CAT_ProductsManufacturerRelation>;
+  status?: InputMaybe<CAT_Product_Status>;
+  validFrom?: InputMaybe<Scalars["Time"]>;
+  validTo?: InputMaybe<Scalars["Time"]>;
 }
 
 /** 'CLS_Address_E' input values */
@@ -527,6 +724,28 @@ export interface PartialUpdateORC_History_EInput {
   updatedBy?: InputMaybe<Scalars["ID"]>;
 }
 
+/** 'TRP_ConfigurationOption' input values */
+export interface PartialUpdateTRP_ConfigurationOptionInput {
+  airtableId?: InputMaybe<Scalars["String"]>;
+  localizations?: InputMaybe<
+    Array<InputMaybe<PartialUpdateTRP_Treatments_Localizations_EInput>>
+  >;
+  multiSelect?: InputMaybe<Scalars["Boolean"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  sections?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+}
+
+/** 'TRP_ConfigurationSection' input values */
+export interface PartialUpdateTRP_ConfigurationSectionInput {
+  airtableId?: InputMaybe<Scalars["String"]>;
+  localizations?: InputMaybe<
+    Array<InputMaybe<PartialUpdateTRP_Treatments_Localizations_EInput>>
+  >;
+  name?: InputMaybe<Scalars["String"]>;
+  options?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  treatments?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+}
+
 /** 'TRP_TreatmentPlans' input values */
 export interface PartialUpdateTRP_TreatmentPlansInput {
   history?: InputMaybe<PartialUpdateORC_History_EInput>;
@@ -543,11 +762,12 @@ export interface PartialUpdateTRP_TreatmentsInput {
   availableAreas?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   availablePositions?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   deletedAt?: InputMaybe<Scalars["Time"]>;
-  depth?: InputMaybe<Depth>;
+  depth?: InputMaybe<Scalars["String"]>;
   localizations?: InputMaybe<
     Array<InputMaybe<PartialUpdateTRP_Treatments_Localizations_EInput>>
   >;
   name?: InputMaybe<Scalars["String"]>;
+  sections?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
 }
 
 /** 'TRP_Treatments_E' input values */
@@ -728,6 +948,24 @@ export interface TRP_AddTreatmentsToPlan_History_Input {
   createdBy: Scalars["ID"];
 }
 
+/** 'TRP_ConfigurationOption' input values */
+export interface TRP_ConfigurationOptionInput {
+  airtableId: Scalars["String"];
+  localizations: Array<InputMaybe<TRP_Treatments_Localizations_EInput>>;
+  multiSelect: Scalars["Boolean"];
+  name: Scalars["String"];
+  sections: Array<InputMaybe<Scalars["ID"]>>;
+}
+
+/** 'TRP_ConfigurationSection' input values */
+export interface TRP_ConfigurationSectionInput {
+  airtableId: Scalars["String"];
+  localizations: Array<InputMaybe<TRP_Treatments_Localizations_EInput>>;
+  name: Scalars["String"];
+  options: Array<InputMaybe<Scalars["ID"]>>;
+  treatments: Array<InputMaybe<Scalars["ID"]>>;
+}
+
 /** 'TRP_TreatmentPlans' input values */
 export interface TRP_TreatmentPlansInput {
   history: ORC_History_EInput;
@@ -750,12 +988,12 @@ export interface TRP_TreatmentsInput {
   availableAreas: Array<InputMaybe<Scalars["String"]>>;
   availablePositions: Array<InputMaybe<Scalars["String"]>>;
   deletedAt?: InputMaybe<Scalars["Time"]>;
-  depth: Depth;
+  depth: Scalars["String"];
   localizations: Array<InputMaybe<TRP_Treatments_Localizations_EInput>>;
   name: Scalars["String"];
+  sections: Array<InputMaybe<Scalars["ID"]>>;
 }
 
-/** 'TRP_Treatments_E' input values */
 export interface TRP_Treatments_EInput {
   area: Area;
   position: Position;
@@ -1211,11 +1449,18 @@ export enum USR_WOP {
 export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   Area: true,
   Boolean: true,
+  CAT_Country: true,
+  CAT_Currency: true,
+  CAT_Implant_Level: true,
+  CAT_InsertionPost: true,
+  CAT_Locale: true,
+  CAT_Material: true,
+  CAT_Product_Status: true,
   CLS_PatientServing: true,
   CLS_RoleType: true,
   CLS_Type: true,
   Date: true,
-  Depth: true,
+  Float: true,
   ID: true,
   Int: true,
   Locale: true,
@@ -1233,6 +1478,153 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   USR_WOP: true,
 };
 export const generatedSchema = {
+  CAT_ImplantsInput: {
+    engaging: { __type: "Boolean!" },
+    guided: { __type: "Boolean!" },
+    insertionPost: { __type: "CAT_InsertionPost!" },
+    level: { __type: "CAT_Implant_Level!" },
+    localizations: { __type: "[CAT_Implants_LocalizationsInput]!" },
+    material: { __type: "CAT_Material!" },
+    measurements: { __type: "CAT_Implants_MeasurementsInput!" },
+    plattformSwitching: { __type: "Boolean!" },
+    sterility: { __type: "Boolean!" },
+  },
+  CAT_Implants_E: {
+    __typename: { __type: "String!" },
+    engaging: { __type: "Boolean!" },
+    guided: { __type: "Boolean!" },
+    insertionPost: { __type: "CAT_InsertionPost!" },
+    level: { __type: "CAT_Implant_Level!" },
+    localizations: { __type: "[CAT_Implants_Localizations_E]!" },
+    material: { __type: "CAT_Material!" },
+    measurements: { __type: "CAT_Implants_Measurements_E!" },
+    plattformSwitching: { __type: "Boolean!" },
+    sterility: { __type: "Boolean!" },
+  },
+  CAT_Implants_EInput: {
+    engaging: { __type: "Boolean!" },
+    guided: { __type: "Boolean!" },
+    insertionPost: { __type: "CAT_InsertionPost!" },
+    level: { __type: "CAT_Implant_Level!" },
+    localizations: { __type: "[CAT_Implants_Localizations_EInput]!" },
+    material: { __type: "CAT_Material!" },
+    measurements: { __type: "CAT_Implants_Measurements_EInput!" },
+    plattformSwitching: { __type: "Boolean!" },
+    sterility: { __type: "Boolean!" },
+  },
+  CAT_Implants_LocalizationsInput: {
+    customAttributes: { __type: "[String]" },
+    description: { __type: "String" },
+    locale: { __type: "CAT_Locale!" },
+    name: { __type: "String!" },
+    prices: { __type: "[CAT_PricesInput]!" },
+    summary: { __type: "String!" },
+  },
+  CAT_Implants_Localizations_E: {
+    __typename: { __type: "String!" },
+    customAttributes: { __type: "[String]" },
+    description: { __type: "String" },
+    locale: { __type: "CAT_Locale!" },
+    name: { __type: "String!" },
+    prices: { __type: "[CAT_Prices_E]!" },
+    summary: { __type: "String!" },
+  },
+  CAT_Implants_Localizations_EInput: {
+    customAttributes: { __type: "[String]" },
+    description: { __type: "String" },
+    locale: { __type: "CAT_Locale!" },
+    name: { __type: "String!" },
+    prices: { __type: "[CAT_Prices_EInput]!" },
+    summary: { __type: "String!" },
+  },
+  CAT_Implants_MeasurementsInput: {
+    diameterApical: { __type: "Float!" },
+    diameterPf: { __type: "Float!" },
+    length: { __type: "Float!" },
+    lengthNeck: { __type: "Float!" },
+    thread: { __type: "String!" },
+    weight: { __type: "Float!" },
+  },
+  CAT_Implants_Measurements_E: {
+    __typename: { __type: "String!" },
+    diameterApical: { __type: "Float!" },
+    diameterPf: { __type: "Float!" },
+    length: { __type: "Float!" },
+    lengthNeck: { __type: "Float!" },
+    thread: { __type: "String!" },
+    weight: { __type: "Float!" },
+  },
+  CAT_Implants_Measurements_EInput: {
+    diameterApical: { __type: "Float!" },
+    diameterPf: { __type: "Float!" },
+    length: { __type: "Float!" },
+    lengthNeck: { __type: "Float!" },
+    thread: { __type: "String!" },
+    weight: { __type: "Float!" },
+  },
+  CAT_Manufacturer: {
+    __typename: { __type: "String!" },
+    _id: { __type: "ID!" },
+    _ts: { __type: "Long!" },
+    name: { __type: "String!" },
+  },
+  CAT_ManufacturerAndProductInput: {
+    manufacturer: { __type: "CAT_ManufacturerInput!" },
+    product: { __type: "CAT_ProductInput!" },
+  },
+  CAT_ManufacturerInput: { name: { __type: "String!" } },
+  CAT_PricesInput: {
+    amount: { __type: "Float!" },
+    country: { __type: "CAT_Country" },
+    currency: { __type: "CAT_Currency!" },
+    validFrom: { __type: "Time!" },
+    validTo: { __type: "Time" },
+  },
+  CAT_Prices_E: {
+    __typename: { __type: "String!" },
+    amount: { __type: "Float!" },
+    country: { __type: "CAT_Country" },
+    currency: { __type: "CAT_Currency!" },
+    validFrom: { __type: "Time!" },
+    validTo: { __type: "Time" },
+  },
+  CAT_Prices_EInput: {
+    amount: { __type: "Float!" },
+    country: { __type: "CAT_Country" },
+    currency: { __type: "CAT_Currency!" },
+    validFrom: { __type: "Time!" },
+    validTo: { __type: "Time" },
+  },
+  CAT_ProductInput: {
+    id: { __type: "String!" },
+    implant: { __type: "CAT_ImplantsInput" },
+    status: { __type: "CAT_Product_Status!" },
+    validFrom: { __type: "Time!" },
+    validTo: { __type: "Time" },
+  },
+  CAT_Products: {
+    __typename: { __type: "String!" },
+    _id: { __type: "ID!" },
+    _ts: { __type: "Long!" },
+    id: { __type: "String!" },
+    implant: { __type: "CAT_Implants_E" },
+    manufacturer: { __type: "CAT_Manufacturer!" },
+    status: { __type: "CAT_Product_Status!" },
+    validFrom: { __type: "Time!" },
+    validTo: { __type: "Time" },
+  },
+  CAT_ProductsInput: {
+    id: { __type: "String!" },
+    implant: { __type: "CAT_Implants_EInput" },
+    manufacturer: { __type: "CAT_ProductsManufacturerRelation" },
+    status: { __type: "CAT_Product_Status!" },
+    validFrom: { __type: "Time!" },
+    validTo: { __type: "Time" },
+  },
+  CAT_ProductsManufacturerRelation: {
+    connect: { __type: "ID" },
+    create: { __type: "CAT_ManufacturerInput" },
+  },
   CLS_Address_E: {
     __typename: { __type: "String!" },
     city: { __type: "String!" },
@@ -1579,6 +1971,51 @@ export const generatedSchema = {
     create: { __type: "USR_UserInput" },
     disconnect: { __type: "Boolean" },
   },
+  PartialUpdateCAT_Implants_EInput: {
+    engaging: { __type: "Boolean" },
+    guided: { __type: "Boolean" },
+    insertionPost: { __type: "CAT_InsertionPost" },
+    level: { __type: "CAT_Implant_Level" },
+    localizations: {
+      __type: "[PartialUpdateCAT_Implants_Localizations_EInput]",
+    },
+    material: { __type: "CAT_Material" },
+    measurements: { __type: "PartialUpdateCAT_Implants_Measurements_EInput" },
+    plattformSwitching: { __type: "Boolean" },
+    sterility: { __type: "Boolean" },
+  },
+  PartialUpdateCAT_Implants_Localizations_EInput: {
+    customAttributes: { __type: "[String]" },
+    description: { __type: "String" },
+    locale: { __type: "CAT_Locale" },
+    name: { __type: "String" },
+    prices: { __type: "[PartialUpdateCAT_Prices_EInput]" },
+    summary: { __type: "String" },
+  },
+  PartialUpdateCAT_Implants_Measurements_EInput: {
+    diameterApical: { __type: "Float" },
+    diameterPf: { __type: "Float" },
+    length: { __type: "Float" },
+    lengthNeck: { __type: "Float" },
+    thread: { __type: "String" },
+    weight: { __type: "Float" },
+  },
+  PartialUpdateCAT_ManufacturerInput: { name: { __type: "String" } },
+  PartialUpdateCAT_Prices_EInput: {
+    amount: { __type: "Float" },
+    country: { __type: "CAT_Country" },
+    currency: { __type: "CAT_Currency" },
+    validFrom: { __type: "Time" },
+    validTo: { __type: "Time" },
+  },
+  PartialUpdateCAT_ProductsInput: {
+    id: { __type: "String" },
+    implant: { __type: "PartialUpdateCAT_Implants_EInput" },
+    manufacturer: { __type: "CAT_ProductsManufacturerRelation" },
+    status: { __type: "CAT_Product_Status" },
+    validFrom: { __type: "Time" },
+    validTo: { __type: "Time" },
+  },
   PartialUpdateCLS_Address_EInput: {
     city: { __type: "String" },
     country: { __type: "String" },
@@ -1679,6 +2116,24 @@ export const generatedSchema = {
     updatedAt: { __type: "Time" },
     updatedBy: { __type: "ID" },
   },
+  PartialUpdateTRP_ConfigurationOptionInput: {
+    airtableId: { __type: "String" },
+    localizations: {
+      __type: "[PartialUpdateTRP_Treatments_Localizations_EInput]",
+    },
+    multiSelect: { __type: "Boolean" },
+    name: { __type: "String" },
+    sections: { __type: "[ID]" },
+  },
+  PartialUpdateTRP_ConfigurationSectionInput: {
+    airtableId: { __type: "String" },
+    localizations: {
+      __type: "[PartialUpdateTRP_Treatments_Localizations_EInput]",
+    },
+    name: { __type: "String" },
+    options: { __type: "[ID]" },
+    treatments: { __type: "[ID]" },
+  },
   PartialUpdateTRP_TreatmentPlansInput: {
     history: { __type: "PartialUpdateORC_History_EInput" },
     name: { __type: "String" },
@@ -1690,11 +2145,12 @@ export const generatedSchema = {
     availableAreas: { __type: "[String]" },
     availablePositions: { __type: "[String]" },
     deletedAt: { __type: "Time" },
-    depth: { __type: "Depth" },
+    depth: { __type: "String" },
     localizations: {
       __type: "[PartialUpdateTRP_Treatments_Localizations_EInput]",
     },
     name: { __type: "String" },
+    sections: { __type: "[ID]" },
   },
   PartialUpdateTRP_Treatments_EInput: {
     area: { __type: "Area" },
@@ -1844,6 +2300,40 @@ export const generatedSchema = {
     treatments: { __type: "[TRP_Treatments_EInput]" },
   },
   TRP_AddTreatmentsToPlan_History_Input: { createdBy: { __type: "ID!" } },
+  TRP_ConfigurationOption: {
+    __typename: { __type: "String!" },
+    _id: { __type: "ID!" },
+    _ts: { __type: "Long!" },
+    airtableId: { __type: "String!" },
+    localizations: { __type: "[TRP_Treatments_Localizations_E]!" },
+    multiSelect: { __type: "Boolean!" },
+    name: { __type: "String!" },
+    sections: { __type: "[TRP_ConfigurationSection]!" },
+  },
+  TRP_ConfigurationOptionInput: {
+    airtableId: { __type: "String!" },
+    localizations: { __type: "[TRP_Treatments_Localizations_EInput]!" },
+    multiSelect: { __type: "Boolean!" },
+    name: { __type: "String!" },
+    sections: { __type: "[ID]!" },
+  },
+  TRP_ConfigurationSection: {
+    __typename: { __type: "String!" },
+    _id: { __type: "ID!" },
+    _ts: { __type: "Long!" },
+    airtableId: { __type: "String!" },
+    localizations: { __type: "[TRP_Treatments_Localizations_E]!" },
+    name: { __type: "String!" },
+    options: { __type: "[TRP_ConfigurationOption]!" },
+    treatments: { __type: "[TRP_Treatments]!" },
+  },
+  TRP_ConfigurationSectionInput: {
+    airtableId: { __type: "String!" },
+    localizations: { __type: "[TRP_Treatments_Localizations_EInput]!" },
+    name: { __type: "String!" },
+    options: { __type: "[ID]!" },
+    treatments: { __type: "[ID]!" },
+  },
   TRP_TreatmentPlans: {
     __typename: { __type: "String!" },
     _id: { __type: "ID!" },
@@ -1871,18 +2361,20 @@ export const generatedSchema = {
     availableAreas: { __type: "[String]!" },
     availablePositions: { __type: "[String]!" },
     deletedAt: { __type: "Time" },
-    depth: { __type: "Depth!" },
+    depth: { __type: "String!" },
     localizations: { __type: "[TRP_Treatments_Localizations_E]!" },
     name: { __type: "String!" },
+    sections: { __type: "[TRP_ConfigurationSection]!" },
   },
   TRP_TreatmentsInput: {
     airtableId: { __type: "String!" },
     availableAreas: { __type: "[String]!" },
     availablePositions: { __type: "[String]!" },
     deletedAt: { __type: "Time" },
-    depth: { __type: "Depth!" },
+    depth: { __type: "String!" },
     localizations: { __type: "[TRP_Treatments_Localizations_EInput]!" },
     name: { __type: "String!" },
+    sections: { __type: "[ID]!" },
   },
   TRP_Treatments_E: {
     __typename: { __type: "String!" },
@@ -2273,6 +2765,10 @@ export const generatedSchema = {
   },
   mutation: {
     __typename: { __type: "String!" },
+    CAT_UpsertMultipleProducts: {
+      __type: "[String]",
+      __args: { data: "[CAT_ManufacturerAndProductInput]!" },
+    },
     CLS_CreateOrganizationalUnit: {
       __type: "CLS_OrganizationalUnit",
       __args: { organizationalUnitData: "CLS_OrganizationalUnit_Input!" },
@@ -2346,6 +2842,14 @@ export const generatedSchema = {
       __args: { patientRef: "String!", status: "String!" },
     },
     USR_UpsertUserFromTiInput: { __type: "USR_User", __args: { tiId: "ID!" } },
+    createCAT_Manufacturer: {
+      __type: "CAT_Manufacturer!",
+      __args: { data: "CAT_ManufacturerInput!" },
+    },
+    createCAT_Products: {
+      __type: "CAT_Products!",
+      __args: { data: "CAT_ProductsInput!" },
+    },
     createCLS_AssignedOrganizationalUnit: {
       __type: "CLS_AssignedOrganizationalUnit!",
       __args: { data: "CLS_AssignedOrganizationalUnitInput!" },
@@ -2366,6 +2870,14 @@ export const generatedSchema = {
     createHES_MedicalFinding: {
       __type: "HES_MedicalFinding!",
       __args: { data: "HES_MedicalFindingInput!" },
+    },
+    createTRP_ConfigurationOption: {
+      __type: "TRP_ConfigurationOption!",
+      __args: { data: "TRP_ConfigurationOptionInput!" },
+    },
+    createTRP_ConfigurationSection: {
+      __type: "TRP_ConfigurationSection!",
+      __args: { data: "TRP_ConfigurationSectionInput!" },
     },
     createTRP_TreatmentPlans: {
       __type: "TRP_TreatmentPlans!",
@@ -2400,6 +2912,11 @@ export const generatedSchema = {
       __args: { data: "USR_PatientInput!" },
     },
     createUSR_User: { __type: "USR_User!", __args: { data: "USR_UserInput!" } },
+    deleteCAT_Manufacturer: {
+      __type: "CAT_Manufacturer",
+      __args: { id: "ID!" },
+    },
+    deleteCAT_Products: { __type: "CAT_Products", __args: { id: "ID!" } },
     deleteCLS_AssignedOrganizationalUnit: {
       __type: "CLS_AssignedOrganizationalUnit",
       __args: { id: "ID!" },
@@ -2419,6 +2936,14 @@ export const generatedSchema = {
     },
     deleteHES_MedicalFinding: {
       __type: "HES_MedicalFinding",
+      __args: { id: "ID!" },
+    },
+    deleteTRP_ConfigurationOption: {
+      __type: "TRP_ConfigurationOption",
+      __args: { id: "ID!" },
+    },
+    deleteTRP_ConfigurationSection: {
+      __type: "TRP_ConfigurationSection",
       __args: { id: "ID!" },
     },
     deleteTRP_TreatmentPlans: {
@@ -2442,6 +2967,14 @@ export const generatedSchema = {
     },
     deleteUSR_Patient: { __type: "USR_Patient", __args: { id: "ID!" } },
     deleteUSR_User: { __type: "USR_User", __args: { id: "ID!" } },
+    partialUpdateCAT_Manufacturer: {
+      __type: "CAT_Manufacturer",
+      __args: { data: "PartialUpdateCAT_ManufacturerInput!", id: "ID!" },
+    },
+    partialUpdateCAT_Products: {
+      __type: "CAT_Products",
+      __args: { data: "PartialUpdateCAT_ProductsInput!", id: "ID!" },
+    },
     partialUpdateCLS_AssignedOrganizationalUnit: {
       __type: "CLS_AssignedOrganizationalUnit",
       __args: {
@@ -2468,6 +3001,17 @@ export const generatedSchema = {
     partialUpdateHES_MedicalFinding: {
       __type: "HES_MedicalFinding",
       __args: { data: "PartialUpdateHES_MedicalFindingInput!", id: "ID!" },
+    },
+    partialUpdateTRP_ConfigurationOption: {
+      __type: "TRP_ConfigurationOption",
+      __args: { data: "PartialUpdateTRP_ConfigurationOptionInput!", id: "ID!" },
+    },
+    partialUpdateTRP_ConfigurationSection: {
+      __type: "TRP_ConfigurationSection",
+      __args: {
+        data: "PartialUpdateTRP_ConfigurationSectionInput!",
+        id: "ID!",
+      },
     },
     partialUpdateTRP_TreatmentPlans: {
       __type: "TRP_TreatmentPlans",
@@ -2508,6 +3052,14 @@ export const generatedSchema = {
       __type: "USR_User",
       __args: { data: "PartialUpdateUSR_UserInput!", id: "ID!" },
     },
+    updateCAT_Manufacturer: {
+      __type: "CAT_Manufacturer",
+      __args: { data: "CAT_ManufacturerInput!", id: "ID!" },
+    },
+    updateCAT_Products: {
+      __type: "CAT_Products",
+      __args: { data: "CAT_ProductsInput!", id: "ID!" },
+    },
     updateCLS_AssignedOrganizationalUnit: {
       __type: "CLS_AssignedOrganizationalUnit",
       __args: { data: "CLS_AssignedOrganizationalUnitInput!", id: "ID!" },
@@ -2531,6 +3083,14 @@ export const generatedSchema = {
     updateHES_MedicalFinding: {
       __type: "HES_MedicalFinding",
       __args: { data: "HES_MedicalFindingInput!", id: "ID!" },
+    },
+    updateTRP_ConfigurationOption: {
+      __type: "TRP_ConfigurationOption",
+      __args: { data: "TRP_ConfigurationOptionInput!", id: "ID!" },
+    },
+    updateTRP_ConfigurationSection: {
+      __type: "TRP_ConfigurationSection",
+      __args: { data: "TRP_ConfigurationSectionInput!", id: "ID!" },
     },
     updateTRP_TreatmentPlans: {
       __type: "TRP_TreatmentPlans",
@@ -2649,6 +3209,11 @@ export const generatedSchema = {
       __type: "USR_UserPage!",
       __args: { _cursor: "String", _size: "Int" },
     },
+    findCAT_ManufacturerByID: {
+      __type: "CAT_Manufacturer",
+      __args: { id: "ID!" },
+    },
+    findCAT_ProductsByID: { __type: "CAT_Products", __args: { id: "ID!" } },
     findCLS_AssignedOrganizationalUnitByID: {
       __type: "CLS_AssignedOrganizationalUnit",
       __args: { id: "ID!" },
@@ -2668,6 +3233,14 @@ export const generatedSchema = {
     },
     findHES_MedicalFindingByID: {
       __type: "HES_MedicalFinding",
+      __args: { id: "ID!" },
+    },
+    findTRP_ConfigurationOptionByID: {
+      __type: "TRP_ConfigurationOption",
+      __args: { id: "ID!" },
+    },
+    findTRP_ConfigurationSectionByID: {
+      __type: "TRP_ConfigurationSection",
       __args: { id: "ID!" },
     },
     findTRP_TreatmentPlansByID: {
@@ -2691,9 +3264,90 @@ export const generatedSchema = {
     },
     findUSR_PatientByID: { __type: "USR_Patient", __args: { id: "ID!" } },
     findUSR_UserByID: { __type: "USR_User", __args: { id: "ID!" } },
+    unique_CAT_Manufacturer_name: {
+      __type: "CAT_Manufacturer",
+      __args: { name: "String!" },
+    },
+    unique_CAT_Products_id: {
+      __type: "CAT_Products",
+      __args: { id: "String!" },
+    },
   },
   subscription: {},
 } as const;
+
+export interface CAT_Implants_E {
+  __typename?: "CAT_Implants_E";
+  engaging: ScalarsEnums["Boolean"];
+  guided: ScalarsEnums["Boolean"];
+  insertionPost: ScalarsEnums["CAT_InsertionPost"];
+  level: ScalarsEnums["CAT_Implant_Level"];
+  localizations: Array<Maybe<CAT_Implants_Localizations_E>>;
+  material: ScalarsEnums["CAT_Material"];
+  measurements: CAT_Implants_Measurements_E;
+  plattformSwitching: ScalarsEnums["Boolean"];
+  sterility: ScalarsEnums["Boolean"];
+}
+
+export interface CAT_Implants_Localizations_E {
+  __typename?: "CAT_Implants_Localizations_E";
+  customAttributes?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  description?: Maybe<ScalarsEnums["String"]>;
+  locale: ScalarsEnums["CAT_Locale"];
+  name: ScalarsEnums["String"];
+  prices: Array<Maybe<CAT_Prices_E>>;
+  summary: ScalarsEnums["String"];
+}
+
+export interface CAT_Implants_Measurements_E {
+  __typename?: "CAT_Implants_Measurements_E";
+  diameterApical: ScalarsEnums["Float"];
+  diameterPf: ScalarsEnums["Float"];
+  length: ScalarsEnums["Float"];
+  lengthNeck: ScalarsEnums["Float"];
+  thread: ScalarsEnums["String"];
+  weight: ScalarsEnums["Float"];
+}
+
+export interface CAT_Manufacturer {
+  __typename?: "CAT_Manufacturer";
+  /**
+   * The document's ID.
+   */
+  _id: ScalarsEnums["ID"];
+  /**
+   * The document's timestamp.
+   */
+  _ts: ScalarsEnums["Long"];
+  name: ScalarsEnums["String"];
+}
+
+export interface CAT_Prices_E {
+  __typename?: "CAT_Prices_E";
+  amount: ScalarsEnums["Float"];
+  country?: Maybe<ScalarsEnums["CAT_Country"]>;
+  currency: ScalarsEnums["CAT_Currency"];
+  validFrom: ScalarsEnums["Time"];
+  validTo?: Maybe<ScalarsEnums["Time"]>;
+}
+
+export interface CAT_Products {
+  __typename?: "CAT_Products";
+  /**
+   * The document's ID.
+   */
+  _id: ScalarsEnums["ID"];
+  /**
+   * The document's timestamp.
+   */
+  _ts: ScalarsEnums["Long"];
+  id: ScalarsEnums["String"];
+  implant?: Maybe<CAT_Implants_E>;
+  manufacturer: CAT_Manufacturer;
+  status: ScalarsEnums["CAT_Product_Status"];
+  validFrom: ScalarsEnums["Time"];
+  validTo?: Maybe<ScalarsEnums["Time"]>;
+}
 
 export interface CLS_Address_E {
   __typename?: "CLS_Address_E";
@@ -3049,6 +3703,40 @@ export interface QueryUSR_GetPatientsPage {
   data: Array<Maybe<USR_Patient>>;
 }
 
+export interface TRP_ConfigurationOption {
+  __typename?: "TRP_ConfigurationOption";
+  /**
+   * The document's ID.
+   */
+  _id: ScalarsEnums["ID"];
+  /**
+   * The document's timestamp.
+   */
+  _ts: ScalarsEnums["Long"];
+  airtableId: ScalarsEnums["String"];
+  localizations: Array<Maybe<TRP_Treatments_Localizations_E>>;
+  multiSelect: ScalarsEnums["Boolean"];
+  name: ScalarsEnums["String"];
+  sections: Array<Maybe<TRP_ConfigurationSection>>;
+}
+
+export interface TRP_ConfigurationSection {
+  __typename?: "TRP_ConfigurationSection";
+  /**
+   * The document's ID.
+   */
+  _id: ScalarsEnums["ID"];
+  /**
+   * The document's timestamp.
+   */
+  _ts: ScalarsEnums["Long"];
+  airtableId: ScalarsEnums["String"];
+  localizations: Array<Maybe<TRP_Treatments_Localizations_E>>;
+  name: ScalarsEnums["String"];
+  options: Array<Maybe<TRP_ConfigurationOption>>;
+  treatments: Array<Maybe<TRP_Treatments>>;
+}
+
 export interface TRP_TreatmentPlans {
   __typename?: "TRP_TreatmentPlans";
   /**
@@ -3079,9 +3767,10 @@ export interface TRP_Treatments {
   availableAreas: Array<Maybe<ScalarsEnums["String"]>>;
   availablePositions: Array<Maybe<ScalarsEnums["String"]>>;
   deletedAt?: Maybe<ScalarsEnums["Time"]>;
-  depth: ScalarsEnums["Depth"];
+  depth: ScalarsEnums["String"];
   localizations: Array<Maybe<TRP_Treatments_Localizations_E>>;
   name: ScalarsEnums["String"];
+  sections: Array<Maybe<TRP_ConfigurationSection>>;
 }
 
 export interface TRP_Treatments_E {
@@ -3303,6 +3992,9 @@ export interface USR_UserPage {
 
 export interface Mutation {
   __typename?: "Mutation";
+  CAT_UpsertMultipleProducts: (args: {
+    data: Array<Maybe<CAT_ManufacturerAndProductInput>>;
+  }) => Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
   CLS_CreateOrganizationalUnit: (args: {
     organizationalUnitData: CLS_OrganizationalUnit_Input;
   }) => Maybe<CLS_OrganizationalUnit>;
@@ -3365,6 +4057,24 @@ export interface Mutation {
   }) => Maybe<USR_Patient>;
   USR_UpsertUserFromTiInput: (args: { tiId: Scalars["ID"] }) => Maybe<USR_User>;
   /**
+   * Create a new document in the collection of 'CAT_Manufacturer'
+   */
+  createCAT_Manufacturer: (args: {
+    /**
+     * 'CAT_Manufacturer' input values
+     */
+    data: CAT_ManufacturerInput;
+  }) => CAT_Manufacturer;
+  /**
+   * Create a new document in the collection of 'CAT_Products'
+   */
+  createCAT_Products: (args: {
+    /**
+     * 'CAT_Products' input values
+     */
+    data: CAT_ProductsInput;
+  }) => CAT_Products;
+  /**
    * Create a new document in the collection of 'CLS_AssignedOrganizationalUnit'
    */
   createCLS_AssignedOrganizationalUnit: (args: {
@@ -3418,6 +4128,24 @@ export interface Mutation {
      */
     data: HES_MedicalFindingInput;
   }) => HES_MedicalFinding;
+  /**
+   * Create a new document in the collection of 'TRP_ConfigurationOption'
+   */
+  createTRP_ConfigurationOption: (args: {
+    /**
+     * 'TRP_ConfigurationOption' input values
+     */
+    data: TRP_ConfigurationOptionInput;
+  }) => TRP_ConfigurationOption;
+  /**
+   * Create a new document in the collection of 'TRP_ConfigurationSection'
+   */
+  createTRP_ConfigurationSection: (args: {
+    /**
+     * 'TRP_ConfigurationSection' input values
+     */
+    data: TRP_ConfigurationSectionInput;
+  }) => TRP_ConfigurationSection;
   /**
    * Create a new document in the collection of 'TRP_TreatmentPlans'
    */
@@ -3500,6 +4228,24 @@ export interface Mutation {
     data: USR_UserInput;
   }) => USR_User;
   /**
+   * Delete an existing document in the collection of 'CAT_Manufacturer'
+   */
+  deleteCAT_Manufacturer: (args: {
+    /**
+     * The 'CAT_Manufacturer' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Manufacturer>;
+  /**
+   * Delete an existing document in the collection of 'CAT_Products'
+   */
+  deleteCAT_Products: (args: {
+    /**
+     * The 'CAT_Products' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Products>;
+  /**
    * Delete an existing document in the collection of 'CLS_AssignedOrganizationalUnit'
    */
   deleteCLS_AssignedOrganizationalUnit: (args: {
@@ -3553,6 +4299,24 @@ export interface Mutation {
      */
     id: Scalars["ID"];
   }) => Maybe<HES_MedicalFinding>;
+  /**
+   * Delete an existing document in the collection of 'TRP_ConfigurationOption'
+   */
+  deleteTRP_ConfigurationOption: (args: {
+    /**
+     * The 'TRP_ConfigurationOption' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationOption>;
+  /**
+   * Delete an existing document in the collection of 'TRP_ConfigurationSection'
+   */
+  deleteTRP_ConfigurationSection: (args: {
+    /**
+     * The 'TRP_ConfigurationSection' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationSection>;
   /**
    * Delete an existing document in the collection of 'TRP_TreatmentPlans'
    */
@@ -3635,6 +4399,32 @@ export interface Mutation {
     id: Scalars["ID"];
   }) => Maybe<USR_User>;
   /**
+   * Partially updates an existing document in the collection of 'CAT_Manufacturer'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+   */
+  partialUpdateCAT_Manufacturer: (args: {
+    /**
+     * 'CAT_Manufacturer' input values
+     */
+    data: PartialUpdateCAT_ManufacturerInput;
+    /**
+     * The 'CAT_Manufacturer' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Manufacturer>;
+  /**
+   * Partially updates an existing document in the collection of 'CAT_Products'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+   */
+  partialUpdateCAT_Products: (args: {
+    /**
+     * 'CAT_Products' input values
+     */
+    data: PartialUpdateCAT_ProductsInput;
+    /**
+     * The 'CAT_Products' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Products>;
+  /**
    * Partially updates an existing document in the collection of 'CLS_AssignedOrganizationalUnit'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
    */
   partialUpdateCLS_AssignedOrganizationalUnit: (args: {
@@ -3712,6 +4502,32 @@ export interface Mutation {
      */
     id: Scalars["ID"];
   }) => Maybe<HES_MedicalFinding>;
+  /**
+   * Partially updates an existing document in the collection of 'TRP_ConfigurationOption'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+   */
+  partialUpdateTRP_ConfigurationOption: (args: {
+    /**
+     * 'TRP_ConfigurationOption' input values
+     */
+    data: PartialUpdateTRP_ConfigurationOptionInput;
+    /**
+     * The 'TRP_ConfigurationOption' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationOption>;
+  /**
+   * Partially updates an existing document in the collection of 'TRP_ConfigurationSection'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+   */
+  partialUpdateTRP_ConfigurationSection: (args: {
+    /**
+     * 'TRP_ConfigurationSection' input values
+     */
+    data: PartialUpdateTRP_ConfigurationSectionInput;
+    /**
+     * The 'TRP_ConfigurationSection' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationSection>;
   /**
    * Partially updates an existing document in the collection of 'TRP_TreatmentPlans'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
    */
@@ -3830,6 +4646,32 @@ export interface Mutation {
     id: Scalars["ID"];
   }) => Maybe<USR_User>;
   /**
+   * Update an existing document in the collection of 'CAT_Manufacturer'
+   */
+  updateCAT_Manufacturer: (args: {
+    /**
+     * 'CAT_Manufacturer' input values
+     */
+    data: CAT_ManufacturerInput;
+    /**
+     * The 'CAT_Manufacturer' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Manufacturer>;
+  /**
+   * Update an existing document in the collection of 'CAT_Products'
+   */
+  updateCAT_Products: (args: {
+    /**
+     * 'CAT_Products' input values
+     */
+    data: CAT_ProductsInput;
+    /**
+     * The 'CAT_Products' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Products>;
+  /**
    * Update an existing document in the collection of 'CLS_AssignedOrganizationalUnit'
    */
   updateCLS_AssignedOrganizationalUnit: (args: {
@@ -3907,6 +4749,32 @@ export interface Mutation {
      */
     id: Scalars["ID"];
   }) => Maybe<HES_MedicalFinding>;
+  /**
+   * Update an existing document in the collection of 'TRP_ConfigurationOption'
+   */
+  updateTRP_ConfigurationOption: (args: {
+    /**
+     * 'TRP_ConfigurationOption' input values
+     */
+    data: TRP_ConfigurationOptionInput;
+    /**
+     * The 'TRP_ConfigurationOption' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationOption>;
+  /**
+   * Update an existing document in the collection of 'TRP_ConfigurationSection'
+   */
+  updateTRP_ConfigurationSection: (args: {
+    /**
+     * 'TRP_ConfigurationSection' input values
+     */
+    data: TRP_ConfigurationSectionInput;
+    /**
+     * The 'TRP_ConfigurationSection' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationSection>;
   /**
    * Update an existing document in the collection of 'TRP_TreatmentPlans'
    */
@@ -4171,6 +5039,24 @@ export interface Query {
     _size?: Maybe<Scalars["Int"]>;
   }) => USR_UserPage;
   /**
+   * Find a document from the collection of 'CAT_Manufacturer' by its id.
+   */
+  findCAT_ManufacturerByID: (args: {
+    /**
+     * The 'CAT_Manufacturer' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Manufacturer>;
+  /**
+   * Find a document from the collection of 'CAT_Products' by its id.
+   */
+  findCAT_ProductsByID: (args: {
+    /**
+     * The 'CAT_Products' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<CAT_Products>;
+  /**
    * Find a document from the collection of 'CLS_AssignedOrganizationalUnit' by its id.
    */
   findCLS_AssignedOrganizationalUnitByID: (args: {
@@ -4224,6 +5110,24 @@ export interface Query {
      */
     id: Scalars["ID"];
   }) => Maybe<HES_MedicalFinding>;
+  /**
+   * Find a document from the collection of 'TRP_ConfigurationOption' by its id.
+   */
+  findTRP_ConfigurationOptionByID: (args: {
+    /**
+     * The 'TRP_ConfigurationOption' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationOption>;
+  /**
+   * Find a document from the collection of 'TRP_ConfigurationSection' by its id.
+   */
+  findTRP_ConfigurationSectionByID: (args: {
+    /**
+     * The 'TRP_ConfigurationSection' document's ID
+     */
+    id: Scalars["ID"];
+  }) => Maybe<TRP_ConfigurationSection>;
   /**
    * Find a document from the collection of 'TRP_TreatmentPlans' by its id.
    */
@@ -4305,6 +5209,12 @@ export interface Query {
      */
     id: Scalars["ID"];
   }) => Maybe<USR_User>;
+  unique_CAT_Manufacturer_name: (args: {
+    name: Scalars["String"];
+  }) => Maybe<CAT_Manufacturer>;
+  unique_CAT_Products_id: (args: {
+    id: Scalars["String"];
+  }) => Maybe<CAT_Products>;
 }
 
 export interface Subscription {
@@ -4312,6 +5222,12 @@ export interface Subscription {
 }
 
 export interface SchemaObjectTypes {
+  CAT_Implants_E: CAT_Implants_E;
+  CAT_Implants_Localizations_E: CAT_Implants_Localizations_E;
+  CAT_Implants_Measurements_E: CAT_Implants_Measurements_E;
+  CAT_Manufacturer: CAT_Manufacturer;
+  CAT_Prices_E: CAT_Prices_E;
+  CAT_Products: CAT_Products;
   CLS_Address_E: CLS_Address_E;
   CLS_AssignedOrganizationalUnit: CLS_AssignedOrganizationalUnit;
   CLS_InsuranceAlliance: CLS_InsuranceAlliance;
@@ -4337,6 +5253,8 @@ export interface SchemaObjectTypes {
   QueryUSR_GetEmployeesPage: QueryUSR_GetEmployeesPage;
   QueryUSR_GetPatientsPage: QueryUSR_GetPatientsPage;
   Subscription: Subscription;
+  TRP_ConfigurationOption: TRP_ConfigurationOption;
+  TRP_ConfigurationSection: TRP_ConfigurationSection;
   TRP_TreatmentPlans: TRP_TreatmentPlans;
   TRP_Treatments: TRP_Treatments;
   TRP_Treatments_E: TRP_Treatments_E;
@@ -4355,6 +5273,12 @@ export interface SchemaObjectTypes {
   USR_UserPage: USR_UserPage;
 }
 export type SchemaObjectTypesNames =
+  | "CAT_Implants_E"
+  | "CAT_Implants_Localizations_E"
+  | "CAT_Implants_Measurements_E"
+  | "CAT_Manufacturer"
+  | "CAT_Prices_E"
+  | "CAT_Products"
   | "CLS_Address_E"
   | "CLS_AssignedOrganizationalUnit"
   | "CLS_InsuranceAlliance"
@@ -4380,6 +5304,8 @@ export type SchemaObjectTypesNames =
   | "QueryUSR_GetEmployeesPage"
   | "QueryUSR_GetPatientsPage"
   | "Subscription"
+  | "TRP_ConfigurationOption"
+  | "TRP_ConfigurationSection"
   | "TRP_TreatmentPlans"
   | "TRP_Treatments"
   | "TRP_Treatments_E"
@@ -4409,10 +5335,16 @@ export type MakeNullable<T> = {
 
 export interface ScalarsEnums extends MakeNullable<Scalars> {
   Area: Area | undefined;
+  CAT_Country: CAT_Country | undefined;
+  CAT_Currency: CAT_Currency | undefined;
+  CAT_Implant_Level: CAT_Implant_Level | undefined;
+  CAT_InsertionPost: CAT_InsertionPost | undefined;
+  CAT_Locale: CAT_Locale | undefined;
+  CAT_Material: CAT_Material | undefined;
+  CAT_Product_Status: CAT_Product_Status | undefined;
   CLS_PatientServing: CLS_PatientServing | undefined;
   CLS_RoleType: CLS_RoleType | undefined;
   CLS_Type: CLS_Type | undefined;
-  Depth: Depth | undefined;
   Locale: Locale | undefined;
   ORC_History: ORC_History | undefined;
   Position: Position | undefined;

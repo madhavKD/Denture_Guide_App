@@ -17,8 +17,10 @@ Design library with native **Design Token** support and Figma files for prototyp
 
 you can use Gitpod 50 hours per month for free
 
-## GQTY
+## GraphQL Client | GQTY
 GraphQL Client
+
+## Auth | Clerk
 
 # Getting Started
 
@@ -28,13 +30,26 @@ Install the Gitpod Plugin
 [Chrome](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki) |
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/gitpod/)
 
-and create a [Gitpod account](https://swiy.co/gitpod)
+and create a [Gitpod Account](https://swiy.co/gitpod)
 
 ## Doppler
 
-Create a [Doppler account](https://swiy.co/doppler-login)
+Create a [Doppler Account](https://swiy.co/doppler-login)
 
 Create a [Project and environment](https://swiy.co/doppler-docs). Take the name of the project and the slug from the environment and add it in the [.gitpod.yml](.gitpod.yml#L10)
+
+Set up the Integration
+1. Vercel
+2. Github
+
+## Clerk
+
+Create a [Clerk Account](https://swiy.io/clerk)
+
+Set the following environment variables in Doppler. You get the values from your [Clerk API Dashboard](https://swiy.io/clerk-set-env-keys).
+- CLERK_FRONTEND_API
+- CLERK_API_KEY
+- CLERK_JWT_KEY
 
 # Learn More
 

@@ -19,10 +19,11 @@ const queryFetcher: QueryFetcher = async function (
   fetchOptions
 ) {
   // Modify "/api/graphql" if needed
-  const response = await fetch("/api/graphql", {
+  const response = await fetch(`${process.env.FAUNA_URL_GRAPHQL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Bearer ${process.env.FAUNA_DECHEA__ADMIN__TOKEN}`
     },
     body: JSON.stringify({
       query,

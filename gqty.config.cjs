@@ -5,8 +5,8 @@ const config = {
   react: true,
   scalarTypes: { DateTime: "string" },
   introspection: {
-    endpoint: process.env.FAUNA_ENDPOINT_GRAPHQL,
-    headers: {"Authorization": "Bearer " + process.env.FAUNA_TOKEN},
+    endpoint: process.env.FAUNA_URL_GRAPHQL,
+    headers: {"Authorization": `Bearer ${process.env.FAUNA_DECHEA__ADMIN__TOKEN}`},
   },
   destination: "./src/gqty/index.ts",
   subscriptions: false,

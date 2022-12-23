@@ -1,7 +1,7 @@
 "use client";
 import { View, Text, Image, Accordion, Tabs, MenuItem } from "reshaped";
 
-export default function Product() {
+export default function SelectProduct() {
   return (
     <View maxWidth="100%" align="stretch" borderColor="neutral-faded" padding={2}>
       <Accordion>
