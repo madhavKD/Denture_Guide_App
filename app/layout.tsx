@@ -17,6 +17,7 @@ export default function RootLayout({
         <head />
         <body>
           <SignedIn>
+            {/* TODO: Create a new Organization or join an existing one */}
             <UserButton />
             <Reshaped theme="reshaped">
               {children}
