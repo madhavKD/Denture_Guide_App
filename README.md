@@ -47,7 +47,7 @@ Set up the Integration
 Create a [Clerk Account](https://swiy.io/clerk)
 
 Set the following environment variables in Doppler. You get the values from your [Clerk API Dashboard](https://swiy.io/clerk-set-env-keys).
-- CLERK_FRONTEND_API
+- PUBLIC_NEXT_CLERK_FRONTEND_API
 - CLERK_API_KEY
 - CLERK_JWT_KEY
 
