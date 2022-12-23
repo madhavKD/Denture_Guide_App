@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "devd": "doppler run -- next dev",
+    "dev": "doppler run -- next dev",
     "build": "next build",
     "generate": "doppler run -- gqty generate",
     "start": "next start",
