@@ -1,8 +1,9 @@
 import './globals.css'
-import { ClerkProvider, SignedIn, SignedOut, SignIn, UserButton } from "@clerk/nextjs/app-beta";
+import { ClerkProvider, SignedIn, SignedOut, UserButton } from "@clerk/nextjs/app-beta";
 import { Button, Reshaped, View } from '../components/Reshaped/Reshaped';
 import SignInButton from '../components/SignInButton';
 import Basket from '../components/Basket';
+import "reshaped/themes/reshaped/theme.css";
 
 
 export default function RootLayout({
@@ -22,7 +23,10 @@ export default function RootLayout({
           <Reshaped theme="reshaped">
             <SignedIn>
               {/* TODO: Create a new Organization or join an existing one */}
-              <UserButton />
+              <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
+                <Basket />
+                <UserButton />
+              </View>
               {children}
             </SignedIn>
             <SignedOut>

@@ -6,8 +6,8 @@ export default function Basket() {
 
     return (
         <>
-            <Button onClick={activate}>
-                <View direction={"row"} gap={2}>
+            <Button onClick={activate} variant="ghost">
+                <View direction={"row"} gap={2} align={"center"}>
                     <Text>Basket</Text>
                     <Badge color="critical">1</Badge>
                 </View>
