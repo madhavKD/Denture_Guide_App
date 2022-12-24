@@ -5,12 +5,14 @@ import { CreateOrganization } from "@clerk/nextjs";
 
 export default function NewAccount() {
     return (
-        <View gap={5} direction={"row"} align={"stretch"}>
+        <View gap={5} direction={"row"} align={"center"}>
             <View.Item columns={5}>
-                <CreateOrganization />
+                <View align={"center"}>
+                    <CreateOrganization appearance={{}} />
+                </View>
             </View.Item>
             <View.Item columns={2}>
-                <Text variant="display-3">6+OR</Text>
+                <Text variant="display-3">OR</Text>
             </View.Item>
             <View.Item columns={5}>
                 <Card><Text>Get invited from an existing Organization</Text></Card>
