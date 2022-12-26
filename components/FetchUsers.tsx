@@ -1,9 +1,12 @@
 "use client"
+import { auth } from "@clerk/nextjs/app-beta";
 import { Suspense } from "react";
 import { useQuery } from "../src/gqty";
 
 // TODO We need to rewrite to use SSR
 function Fetch() {
+    // const { userId: string } = auth();
+
     const query = useQuery({
         // boolean | undefined
         suspense: true,
@@ -21,7 +24,7 @@ function Fetch() {
     );
 }
 
-export default function Users() {
+export default function FetchUsers() {
 
     return (
         <Suspense fallback="Loading...">

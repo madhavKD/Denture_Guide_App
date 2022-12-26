@@ -19,7 +19,7 @@ const queryFetcher: QueryFetcher = async function (
   fetchOptions
 ) {
   // Modify "/api/graphql" if needed
-  const response = await fetch(`${process.env.FAUNA_URL_GRAPHQL}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_FAUNA_URL_GRAPHQL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

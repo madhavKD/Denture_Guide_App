@@ -8,7 +8,7 @@ export default function NewAccount() {
         <View gap={5} direction={"row"} align={"center"}>
             <View.Item columns={5}>
                 <View align={"center"}>
-                    <CreateOrganization appearance={{}} />
+                    <CreateOrganization/>
                 </View>
             </View.Item>
             <View.Item columns={2}>
