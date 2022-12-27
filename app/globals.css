@@ -19,6 +19,7 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
@@ -26,5 +27,9 @@ a {
 }
 
 .cl-card {
-  width: unset;
+  width: 100%;
+}
+
+.cl-createOrganization-root {
+  width: 100%;
 }
