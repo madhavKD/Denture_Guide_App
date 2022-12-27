@@ -11,6 +11,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.6.14",
+    "@dechea/hes.ui.foundations.teeth.areas.crown-side-view": "^1.0.11",
+    "@dechea/hes.ui.foundations.teeth.areas.root": "^1.0.20",
+    "@dechea/hes.ui.foundations.teeth.areas.tooth": "^1.0.24",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@gqty/react": "^2.2.0-alpha-445c0456.0",
     "@types/node": "18.11.11",
     "@types/react": "18.0.26",
