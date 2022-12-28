@@ -5,7 +5,7 @@ import { CreateOrganization } from "@clerk/nextjs";
 
 export default function NewAccount() {
     return (
-        <View gap={5} direction={"row"} align={"center"}>
+        <View gap={5} direction={"column"} align={"center"}>
             <View.Item columns={5}>
                 <View align={"center"}>
                     <CreateOrganization/>

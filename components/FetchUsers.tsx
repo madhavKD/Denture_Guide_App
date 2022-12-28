@@ -1,16 +1,14 @@
 "use client"
-import { auth } from "@clerk/nextjs/app-beta";
+import { useAuth } from "@clerk/nextjs";
 import { Suspense } from "react";
 import { useQuery } from "../src/gqty";
 
 // TODO We need to rewrite to use SSR
 function Fetch() {
-    // const { userId: string } = auth();
-
     const query = useQuery({
         // boolean | undefined
         suspense: true,
-
+        
         // boolean | object | number | string | null
         // If you put an object to trigger re-validation on-demand, it should be a `memoized` value from `useMemo`
         staleWhileRevalidate: true,

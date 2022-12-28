@@ -27,7 +27,7 @@ a {
 }
 
 .cl-card {
-  width: 100%;
+  width: unset;
 }
 
 .cl-createOrganization-root {
