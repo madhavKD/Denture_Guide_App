@@ -1,0 +1,1 @@
+export { Teeth } from './Teeth';

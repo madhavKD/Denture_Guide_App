@@ -1,7 +1,7 @@
-import SelectProduct from "../components/SelectProduct";
-import FetchUsers from "../components/FetchUsers";
-import { View } from "../components/Reshaped/Reshaped";
-import TeethDiagram from "../components/teeth-diagram";
+import SelectProduct from '../components/SelectProduct';
+import FetchUsers from '../components/FetchUsers';
+import { View } from '../components/Reshaped/Reshaped';
+import { TeethDiagram } from '../components/teeth-diagram';
 
 export default function Home() {
   return (
@@ -10,5 +10,5 @@ export default function Home() {
       <SelectProduct />
       <TeethDiagram />
     </View>
-  )
+  );
 }
