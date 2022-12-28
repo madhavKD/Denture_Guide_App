@@ -2,34 +2,38 @@
  * GQTY: You can safely modify this file and Query Fetcher based on your needs
  */
 
-import { createReactClient } from "@gqty/react";
+import { createReactClient } from '@gqty/react';
 
-import type { QueryFetcher } from "gqty";
-import { createClient } from "gqty";
+import type { QueryFetcher } from 'gqty';
+import { createClient } from 'gqty';
 import type {
   GeneratedSchema,
   SchemaObjectTypes,
   SchemaObjectTypesNames,
-} from "./schema.generated";
-import { generatedSchema, scalarsEnumsHash } from "./schema.generated";
+} from './schema.generated';
+import { generatedSchema, scalarsEnumsHash } from './schema.generated';
 
 const queryFetcher: QueryFetcher = async function (
   query,
   variables,
   fetchOptions
 ) {
+  const FAUNA_DECHEA__ADMIN__TOKEN = localStorage.getItem(
+    'FAUNA_DECHEA__ADMIN__TOKEN'
+  );
+
   // Modify "/api/graphql" if needed
   const response = await fetch(`${process.env.NEXT_PUBLIC_FAUNA_URL_GRAPHQL}`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${process.env.FAUNA_DECHEA__ADMIN__TOKEN}`
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${FAUNA_DECHEA__ADMIN__TOKEN}`,
     },
     body: JSON.stringify({
       query,
       variables,
     }),
-    mode: "cors",
+    mode: 'cors',
     ...fetchOptions,
   });
 
@@ -90,4 +94,4 @@ export {
   prepareQuery,
 };
 
-export * from "./schema.generated";
+export * from './schema.generated';
