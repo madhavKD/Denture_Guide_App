@@ -1,0 +1,1 @@
+export { Tooth47} from "./Tooth47";
