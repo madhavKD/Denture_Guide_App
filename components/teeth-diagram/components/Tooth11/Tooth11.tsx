@@ -17,17 +17,11 @@ export const Tooth11 = () => {
     <Container>
       <Tooth>
         <Root11 enable={false} />
-
         <ImplantUpperJaw enable={true} />
-
         <MissingRoot11 enable={false} />
-
         <CrownSideView11 enable={true} />
-
         <ArtificialCrown11 enable={false} />
-
         <Prosthesis11 enable={false} />
-
         <MissingCrown11 enable={false} />
       </Tooth>
     </Container>

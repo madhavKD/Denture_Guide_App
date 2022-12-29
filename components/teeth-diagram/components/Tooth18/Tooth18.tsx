@@ -4,11 +4,23 @@ import React from 'react';
 import { Tooth18 as Tooth } from '@dechea/hes.ui.foundations.teeth.areas.tooth';
 import {
   Root18,
-  Root18Left,
   Root18Middle,
+  Root18Left,
   Root18Right,
 } from '@dechea/hes.ui.foundations.teeth.areas.root';
 import { CrownSideView18 } from '@dechea/hes.ui.foundations.teeth.areas.crown-side-view';
+import { ImplantUpperJaw } from '@dechea/hes.ui.foundations.teeth.visualizations.implant';
+import {
+  MissingRoot18,
+  MissingRoot18Middle,
+  MissingRoot18Left,
+  MissingRoot18Right,
+} from '@dechea/hes.ui.foundations.teeth.visualizations.missing-root';
+import { ArtificialCrown18 } from '@dechea/hes.ui.foundations.teeth.visualizations.artificial-crown';
+import { Prosthesis18 } from '@dechea/hes.ui.foundations.teeth.visualizations.prosthesis';
+import { MissingCrown18 } from '@dechea/hes.ui.foundations.teeth.visualizations.missing-crown';
+
+import { Container } from '../Container';
 // import {
 //   AnchorLeft,
 //   AnchorRight,
@@ -30,18 +42,29 @@ import { CrownSideView18 } from '@dechea/hes.ui.foundations.teeth.areas.crown-si
 //   RootFilling18Middle,
 //   RootFilling18Right,
 // } from '@dechea/hes.ui.foundations.teeth.visualizations.root-filling';
-import { Container } from '../Container';
 
 export const Tooth18 = () => {
   return (
     <Container>
       <Tooth>
-        <Root18>
-          <Root18Middle />
-          <Root18Left />
-          <Root18Right />
+        <Root18 enable={true}>
+          <Root18Middle enable={true} />
+          <Root18Left enable={true} />
+          <Root18Right enable={true} />
         </Root18>
-        <CrownSideView18 />
+
+        <ImplantUpperJaw enable={false} />
+
+        <MissingRoot18 enable={false}>
+          <MissingRoot18Middle enable={false} />
+          <MissingRoot18Left enable={false} />
+          <MissingRoot18Right enable={false} />
+        </MissingRoot18>
+
+        <CrownSideView18 enable={true} />
+        <ArtificialCrown18 enable={false} />
+        <Prosthesis18 enable={false} />
+        <MissingCrown18 enable={false} />
 
         {/* Implant visualization */}
         {/* <ImplantUpperJaw />
