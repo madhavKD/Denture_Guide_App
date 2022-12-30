@@ -5,6 +5,10 @@ tasks:
   - name: Start development environment
     before: |
       eval $(command gp env -e)
+      echo "DOPPLER_LOCAL_TOKEN=========== ${DOPPLER_LOCAL_TOKEN}"
+      echo DOPPLER_LOCAL_TOKEN
+      echo "BIT_TOKEN=========== ${BIT_TOKEN}"
+      echo BIT_TOKEN
       doppler configure set token $DOPPLER_LOCAL_TOKEN
       doppler setup --project dechea --config dev
       npm config set '@dechea:registry' https://node.bit.cloud
