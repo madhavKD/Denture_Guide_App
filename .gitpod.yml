@@ -7,8 +7,8 @@ tasks:
       eval $(command gp env -e)
       doppler configure set token $DOPPLER_LOCAL_TOKEN
       doppler setup --project dechea --config dev
-      npm config set '@dechea:registry' https://node.bit.cloud
-      doppler run --command='npm config set "//node.bit.cloud/:_authToken" $BIT_TOKEN'
+      npm config set '@dechea:registry' https://node.bit.dev
+      doppler run --command='npm config set "//node.bit.dev/:_authToken" $BIT_TOKEN'
 
     init: |
       npm install
