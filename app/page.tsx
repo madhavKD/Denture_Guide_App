@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+"use client";
+
 import SelectProduct from '../components/SelectProduct';
 import FetchUsers from '../components/FetchUsers';
 import { View } from '../components/Reshaped/Reshaped';
