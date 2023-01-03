@@ -7,6 +7,7 @@ import RootStyleRegistry from "./registry";
 import { MuiThemeProvider } from '../components/Mui';
 
 import "reshaped/themes/reshaped/theme.css";
+import { Header } from '../components/UI/Header';
 
 export default function RootLayout({
   children,
@@ -27,10 +28,11 @@ export default function RootLayout({
               <Reshaped theme="reshaped">
                 <SignedIn>
                   {/* TODO: Create a new Organization or join an existing one */}
-                  <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
+                  <Header />
+                  {/* <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
                     <Basket />
                     <UserButton />
-                  </View>
+                  </View> */}
                   {children}
                 </SignedIn>
                 <SignedOut>
