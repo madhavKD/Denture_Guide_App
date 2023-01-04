@@ -4,7 +4,7 @@ export const TreatmentCard = ({ icon = <></>, text, number }: { icon: any, text:
   const Icon = icon;
   return <View width='350px'>
     <Card padding={0}>
-      <View gap={2.5} direction="row" align="center" justify='center' paddingTop={4} paddingBottom={4} paddingEnd={5} paddingStart={5}>
+      <View gap={3} direction="row" align="center" justify='center' paddingTop={4} paddingBottom={4} paddingEnd={5} paddingStart={5}>
         <Icon />
         <View.Item grow>
           <Text variant="body-medium-1">

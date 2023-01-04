@@ -25,9 +25,9 @@ export default function Home() {
           </View>
           <TeethDiagram />
           <View gap={10} direction='row' align='center' padding={5} justify='center'>
-            {data?.map((item: any) => {
+            {data?.map((item: any, index: number) => {
               return (
-                <TreatmentCard icon={item.icon} text={item.text} number={item.number} />
+                <TreatmentCard key={index} icon={item.icon} text={item.text} number={item.number} />
               )
             })}
           </View>
