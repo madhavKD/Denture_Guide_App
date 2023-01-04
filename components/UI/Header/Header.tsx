@@ -13,7 +13,7 @@ export default function Header() {
 						<View height='40px' width="40px" align='center' justify='center'>
 							<Image src="./dechea.svg" alt="dechea logo" width={23} height={24} />
 						</View>
-						
+
 						<View direction='column'>
 							<View.Item>
 								<Text variant="body-strong-1" color="neutral-faded">Prosthetic selection guide</Text>
