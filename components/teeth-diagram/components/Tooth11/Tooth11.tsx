@@ -12,15 +12,15 @@ import { MissingCrown11 } from '@dechea/hes.ui.foundations.teeth.visualizations.
 
 import { Container } from '../Container';
 
-export const Tooth11 = () => {
+export const Tooth11 = ({ implant = false, artificial = false }: { implant: boolean, artificial: boolean }) => {
   return (
     <Container>
       <Tooth>
         <Root11 enable={false} />
-        <ImplantUpperJaw enable={true} />
+        <ImplantUpperJaw enable={implant} />
         <MissingRoot11 enable={false} />
         <CrownSideView11 enable={true} />
-        <ArtificialCrown11 enable={false} />
+        <ArtificialCrown11 enable={artificial} />
         <Prosthesis11 enable={false} />
         <MissingCrown11 enable={false} />
       </Tooth>
