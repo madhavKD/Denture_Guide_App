@@ -27,10 +27,10 @@ export default function RootLayout({
               <Reshaped theme="reshaped">
                 <SignedIn>
                   {/* TODO: Create a new Organization or join an existing one */}
-                  <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
+                  {/* <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
                     <Basket />
                     <UserButton />
-                  </View>
+                  </View> */}
                   {children}
                 </SignedIn>
                 <SignedOut>
