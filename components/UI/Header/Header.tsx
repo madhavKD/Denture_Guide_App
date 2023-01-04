@@ -1,7 +1,8 @@
 'use client';
 
 import React from "react";
-import { ActionBar, Image, View, Text, Avatar } from "reshaped";
+import { ActionBar, View, Text, Avatar } from "reshaped";
+import Image from "next/image";
 
 export default function Header() {
 	return (
@@ -10,7 +11,7 @@ export default function Header() {
 				<View.Item columns={6}>
 					<View direction='row' justify='start' gap={2}>
 						<View height='40px' width="40px" align='center' justify='center'>
-							<Image src="./dechea.svg" alt="dechea logo" />
+							<Image src="./dechea.svg" alt="dechea logo" width={23} height={24} />
 						</View>
 						
 						<View direction='column'>
@@ -28,7 +29,7 @@ export default function Header() {
 					<View direction='row' justify='end' align='center' height='40px' divided gap={6}>
 						<View direction='row' height='inherit'>
 							<View direction='row' gap={2} align="center" height="100%">
-								<Image src="./cart.svg" alt="Orders" />
+								<Image src="./cart.svg" alt="Orders" width={24} height={24} />
 								<Text variant="body-strong-1" color="neutral-faded">Order</Text>
 
 								<View.Item gapBefore={3}>
