@@ -22,13 +22,19 @@ const ToothNumber = ({ tooth }: ToothProps) => {
 export const Teeth = ({
   jawType,
   teeth,
+  toggleToothSelection,
   ...props
 }: TeethProps): JSX.Element => {
   return (
     <>
       {teeth.map((tooth: number | string) => (
         <View.Item key={tooth} columns={1} grow={true}>
-          <View direction="column" gap={2} textAlign="center">
+          <View
+            direction="column"
+            gap={2}
+            textAlign="center"
+            attributes={{ onClick: () => toggleToothSelection(Number(tooth)) }}
+          >
             {jawType === 'upper' ? (
               <>
                 <Tooth tooth={tooth} {...props} />
