@@ -12,6 +12,7 @@ import RootStyleRegistry from './registry';
 import { MuiThemeProvider } from '../components/Mui';
 
 import 'reshaped/themes/reshaped/theme.css';
+import { SideNavigationBar } from '../components/UI/SideNavigationBar';
 
 export default function RootLayout({
   children,
@@ -36,7 +37,14 @@ export default function RootLayout({
                     <Basket />
                     <UserButton />
                   </View> */}
-                  {children}
+                  <View direction="row" height="100%" width="100%">
+                    <View width="64px">
+                      <SideNavigationBar />
+                    </View>
+                    <View width="calc(100% - 64px)" padding={4}>
+                      {children}
+                    </View>
+                  </View>
                 </SignedIn>
                 <SignedOut>
                   <View
