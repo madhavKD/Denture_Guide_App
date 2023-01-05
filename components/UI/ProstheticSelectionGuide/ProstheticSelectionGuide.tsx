@@ -5,9 +5,11 @@ import { View, Text, Container } from 'reshaped';
 import { TeethDiagram } from '../../teeth-diagram';
 import { TreatmentCard } from '../TreatmentCard';
 import { data } from '../__mock__/data';
+import { SelectProstheticsButton } from './components/SelectProtheticsButton';
 
 export default function ProstheticSelectionGuide() {
   const [selectedTooth, setSelectedTooth] = useState<number[]>([]);
+  const [selectedTreatments, setSelectedTreatments] = useState<string[]>([]);
 
   const toggleToothSelection = (tooth: number) => {
     const toothIndex = selectedTooth.indexOf(tooth);
@@ -20,6 +22,15 @@ export default function ProstheticSelectionGuide() {
       setSelectedTooth(selectedToothClone);
     }
   };
+
+  const handleSelectTreatment = (treatment: string) => {
+    const treatmentIndex = selectedTreatments.indexOf(treatment);
+
+    if (treatmentIndex === -1) {
+      setSelectedTreatments([...selectedTreatments, treatment]);
+    }
+  };
+
   return (
     <>
       <View paddingBottom={20}>
@@ -31,29 +42,32 @@ export default function ProstheticSelectionGuide() {
         </Text>
       </View>
       <TeethDiagram toggleToothSelection={toggleToothSelection} />
-      {Boolean(selectedTooth.length) && (
-        <Container width="85%">
-          <View
-            gap={10}
-            direction="row"
-            align="center"
-            paddingTop={25}
-            paddingBottom={20}
-            justify="start"
-          >
-            {data?.map((item: any, index: number) => {
+      <Container width="85%">
+        <View
+          gap={10}
+          direction="row"
+          align="center"
+          paddingTop={25}
+          paddingBottom={20}
+          justify="start"
+        >
+          {Boolean(selectedTooth.length) &&
+            !Boolean(selectedTreatments.length) &&
+            data?.map((item: any, index: number) => {
               return (
                 <TreatmentCard
                   key={index}
                   icon={item.icon}
                   text={item.text}
                   number={item.number}
+                  onSelectTreatment={handleSelectTreatment}
                 />
               );
             })}
-          </View>
-        </Container>
-      )}
+
+          {Boolean(selectedTreatments.length) && <SelectProstheticsButton />}
+        </View>
+      </Container>
     </>
   );
 }

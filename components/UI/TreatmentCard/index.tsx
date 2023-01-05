@@ -4,15 +4,17 @@ export const TreatmentCard = ({
   icon = <></>,
   text,
   number,
+  onSelectTreatment,
 }: {
   icon: any;
   text: string;
   number: number;
+  onSelectTreatment: Function;
 }) => {
   const Icon = icon;
   return (
     <View width="350px">
-      <Card padding={0}>
+      <Card padding={0} onClick={() => onSelectTreatment(text)}>
         <MenuItem roundedCorners>
           <View gap={0} direction="row" align="center" justify="center">
             <Icon />
