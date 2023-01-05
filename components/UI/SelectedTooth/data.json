@@ -1,0 +1,88 @@
+[
+    {
+      "title": "Implant Properties",
+      "type": "treatment",
+      "icon": "implant",
+      "availableOptions": [
+        {
+          "name": "Implant Line",
+          "applyOnAllTooth": true,
+          "options": [
+            {
+              "id": 1,
+              "name": "Camlog",
+              "image": null
+            },
+            {
+              "id": 2,
+              "name": "Conelog",
+              "image": null
+            },
+            {
+              "id": 3,
+              "name": "iSy",
+              "image": null
+            },
+            {
+              "id": 4,
+              "name": "Ceralog",
+              "image": null
+            },
+            {
+              "id": 5,
+              "name": "lodi",
+              "image": null
+            }
+          ]
+        },
+        {
+          "name": "PF diameter for ",
+          "applyOnAllTooth": false,
+          "options": [
+            {
+              "id": 1,
+              "name": "5.0 mm",
+              "image": "ellipse5.svg"
+            },
+            {
+              "id": 2,
+              "name": "4.3 mm",
+              "image": "ellipse4.3.svg"
+            },
+            {
+              "id": 3,
+              "name": "3.8 mm",
+              "image": "ellipse3.8.svg"
+            },
+            {
+              "id": 4,
+              "name": "3.3 mm",
+              "image": "ellipse3.3.svg"
+            }
+          ]
+        },
+        {
+          "name": "Retention type",
+          "applyOnAllTooth": true,
+          "options": [
+            {
+              "id": 1,
+              "name": "Screw Retained",
+              "image": null
+            },
+            {
+              "id": 2,
+              "name": "Cemented",
+              "image": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Prosthetics",
+      "type": "product",
+      "icon": "lock.svg",
+      "availableOptions": []
+    }
+  ]
