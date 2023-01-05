@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function SelectProstheticsButton() {
   const router = useRouter()
+  router.prefetch('/teeth-diagram/selected-tooth')
 
   const handleButtonClick = () => {
     router.push('/teeth-diagram/selected-tooth')
