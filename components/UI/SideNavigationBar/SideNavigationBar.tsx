@@ -13,7 +13,7 @@ export default function SideNavigationBar() {
         </View>
 
         <View paddingTop={16} paddingBottom={16} gap={2} maxHeight="391px">
-          <MenuItem href="/teeth-diagram" selected >
+          <MenuItem href="/" selected >
             <Image src="./prostheticGuide.svg" alt="Prosthetic selection guide" height={24} width={24} />
           </MenuItem>
           <MenuItem >

@@ -3,8 +3,15 @@
 import Image from 'next/image';
 import React from 'react';
 import { View, Button } from 'reshaped';
+import { useRouter } from "next/navigation";
 
 export default function SelectProstheticsButton() {
+  const router = useRouter()
+
+  const handleButtonClick = () => {
+    router.push('/teeth-diagram/selected-tooth')
+  }
+
   return (
     <View direction="row" width="100%" justify="center">
       <Button
@@ -20,6 +27,7 @@ export default function SelectProstheticsButton() {
         size="large"
         variant="outline"
         fullWidth={false}
+        onClick={handleButtonClick}
       >
         Select Prosthetics
       </Button>
