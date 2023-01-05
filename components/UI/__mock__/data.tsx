@@ -3,11 +3,16 @@
 import { Tooth11 } from '../../teeth-diagram/components/Tooth11';
 import { View } from '../../Reshaped/Reshaped';
 
-const ImplantIcon = () => (
+export const ImplantIcon = () => (
   <View height="32px" width="32px" justify="center" align="center">
     <Tooth11 implant artificial root={false} />
   </View>
 );
+
+export const selectedToothData = [
+	{ name: 'Implant Properties', attr: ['Implant Line', 'PF diagmeter', 'Retension type'] },
+	{ name: 'Prosthesis', attr: ['Abutentis', 'Healing Abutentis'] },
+];
 
 export const data = [
   { text: 'Implant Crown', number: 1, icon: ImplantIcon },

@@ -6,6 +6,7 @@ import { TeethDiagram } from '../../teeth-diagram';
 import { TreatmentCard } from '../TreatmentCard';
 import { data } from '../__mock__/data';
 import { SelectProstheticsButton } from './components/SelectProtheticsButton';
+import { ProstheticsProducts } from '../ProstheticsProducts';
 
 export default function ProstheticSelectionGuide() {
   const [selectedTooth, setSelectedTooth] = useState<number[]>([]);
@@ -67,6 +68,7 @@ export default function ProstheticSelectionGuide() {
 
           {Boolean(selectedTreatments.length) && <SelectProstheticsButton />}
         </View>
+        <ProstheticsProducts />
       </Container>
     </>
   );
