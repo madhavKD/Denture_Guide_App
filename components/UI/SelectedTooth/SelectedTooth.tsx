@@ -68,7 +68,7 @@ export default function SelectedTooth() {
                 {tooth.availableOptions.map((availableOption, index) => (
                   <Tabs.Panel value={`${index}`} key={index}>
                     {
-                      tooth.type === 'treatment' ? (
+                      tooth.type === 'treatment' && 'question' in availableOption ? (
                         <Treatments question={availableOption.question} title={availableOption.title} options={availableOption.options} />
                       ) : ('Prosthetics UI')
                     }
