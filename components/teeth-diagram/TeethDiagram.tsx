@@ -7,15 +7,16 @@ import {
   lowerJawLeftTeeth,
   lowerJawRightTeeth,
 } from '@dechea/hes.constants.tooth-position';
-import { View } from 'reshaped';
+import { Container, View } from 'reshaped';
 import { Teeth } from './components/Teeth';
 
 export const TeethDiagram = () => {
   return (
-      <View direction="column" gap={5} align="center">
+    <Container width="80%">
+      <View direction="column" gap={5} align="center" divided>
         {/* upper jaw */}
         <View.Item columns={12}>
-          <View direction="row" gap={5}>
+          <View direction="row" gap={5} divided wrap={false}>
             {/* Upper left */}
             <View.Item columns={6}>
               <View direction="row" gap={2} align="end" justify="end">
@@ -34,7 +35,7 @@ export const TeethDiagram = () => {
 
         {/* lower jaw */}
         <View.Item columns={12}>
-          <View direction="row" gap={5}>
+          <View direction="row" gap={5} divided wrap={false}>
             {/* Lower left */}
             <View.Item columns={6}>
               <View direction="row" gap={2} align="start" justify="end">
@@ -51,5 +52,6 @@ export const TeethDiagram = () => {
           </View>
         </View.Item>
       </View>
+    </Container>
   );
 };

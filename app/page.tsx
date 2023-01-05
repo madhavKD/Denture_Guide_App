@@ -3,7 +3,7 @@
 
 import SelectProduct from '../components/SelectProduct';
 import FetchUsers from '../components/FetchUsers';
-import { View, Text } from '../components/Reshaped/Reshaped';
+import { View, Text,Container } from '../components/Reshaped/Reshaped';
 import { TeethDiagram } from '../components/teeth-diagram';
 import { SideNavigationBar } from '../components/UI/SideNavigationBar';
 import { TreatmentCard } from '../components/UI/TreatmentCard';
@@ -24,13 +24,15 @@ export default function Home() {
             <Text color="disabled" variant="caption-2">by Dechea</Text>
           </View>
           <TeethDiagram />
-          <View gap={10} direction='row' align='center' padding={5} justify='center'>
-            {data?.map((item: any, index: number) => {
-              return (
-                <TreatmentCard key={index} icon={item.icon} text={item.text} number={item.number} />
-              )
-            })}
-          </View>
+          <Container width="85%">
+            <View gap={10} direction='row' align='center' paddingTop={25} paddingBottom={20} justify='start'>
+              {data?.map((item: any, index: number) => {
+                return (
+                  <TreatmentCard key={index} icon={item.icon} text={item.text} number={item.number} />
+                )
+              })}
+            </View>
+          </Container>
         </View>
       </View>
     </>
