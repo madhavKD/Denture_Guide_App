@@ -2,14 +2,28 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { Tabs, Text, View } from '../../Reshaped/Reshaped';
 import selectedToothData from "./data.json";
 import { mapToothVisualization } from './mapToothVisualization';
 
 export default function SelectedTooth() {
+  const [activeTab, setActiveTab] = useState<string>('0');
+  const [itemsActiveTab, setItemsActiveTab] = useState<string>('0');
+
+
+  const onChangeTab = ({ value }: { value: string }) => {
+    setActiveTab(value);
+  }
+
+
+  const onChangeItemTab = ({ value }: { value: string }) => {
+    setItemsActiveTab(value);
+  }
+
 
   return (
-    <Tabs itemWidth="equal" variant='pills-elevated'>
+    <Tabs value={activeTab} onChange={onChangeTab} itemWidth="equal" variant='pills-elevated'>
       <Tabs.List>
         {selectedToothData.map((tooth, index) => {
           const Icon = mapToothVisualization[tooth.icon as keyof typeof mapToothVisualization]
@@ -17,12 +31,14 @@ export default function SelectedTooth() {
             <Tabs.Item value={`${index}`} key={index}>
               <View gap={3} direction='row' align='center'>
                 {
-                  tooth.type === 'treatment' ?
-
+                  tooth.type === 'treatment' ? (
                     <View height='24px' width="24px">
                       <Icon />
                     </View>
-                    : <Image src={`/${tooth.icon}`} height={24} width={24} alt={tooth.title} />
+                  )
+                    : (
+                      <Image src={`/${tooth.icon}`} height={24} width={24} alt={tooth.title} />
+                    )
                 }
                 <Text variant='body-strong-2' color='neutral-faded'>{tooth.title}</Text>
               </View>
@@ -31,30 +47,32 @@ export default function SelectedTooth() {
         })}
       </Tabs.List>
 
-      {/* <View gap={2} align='stretch' paddingTop={2}>
-        {data.map((data, index) => (
+
+
+      <View gap={2} align='stretch' paddingTop={2}>
+        {selectedToothData.map((tooth, index) => (
           <Tabs.Panel value={`${index}`} key={index}>
-            <Tabs itemWidth="equal" variant='pills-elevated' >
+            <Tabs value={itemsActiveTab} onChange={onChangeItemTab} itemWidth="equal" variant='pills-elevated' >
               <Tabs.List>
-                {data.attr.map((item, index) => (
+                {tooth.availableOptions.map((availableOption, index) => (
                   <Tabs.Item value={`${index}`} key={index}>
                     <View gap={3} direction='row'>
-                      <Text variant='body-medium-2' color='neutral-faded'>{item}</Text>
+                      <Text variant='body-medium-2' color='neutral-faded'>{availableOption.name}</Text>
                     </View>
                   </Tabs.Item>
                 ))}
               </Tabs.List>
 
               <View paddingTop={2}>
-                {data.attr.map((item, index) => (
+                {tooth.availableOptions.map((availableOption, index) => (
                   <Tabs.Panel value={`${index}`} key={index}>
-                    {item}
+                    {availableOption.name}
                   </Tabs.Panel>
                 ))}
               </View>
             </Tabs>
           </Tabs.Panel>))}
-      </View> */}
+      </View>
     </Tabs>
   );
 }
