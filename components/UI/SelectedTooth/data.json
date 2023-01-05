@@ -7,6 +7,8 @@
         {
           "name": "Implant Line",
           "applyOnAllTooth": true,
+          "title": "Implant Properties",
+          "question": "Implant Line for all implants",
           "options": [
             {
               "id": 1,
@@ -36,8 +38,10 @@
           ]
         },
         {
-          "name": "PF diameter for ",
+          "name": "PF diameter",
           "applyOnAllTooth": false,
+          "title": "Implant Properties",
+          "question": "PF Diameter of 14",
           "options": [
             {
               "id": 1,
@@ -64,6 +68,8 @@
         {
           "name": "Retention type",
           "applyOnAllTooth": true,
+          "title": "Implant Properties",
+          "question": "Retention Type",
           "options": [
             {
               "id": 1,

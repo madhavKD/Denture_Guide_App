@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { Tabs, Text, View } from '../../Reshaped/Reshaped';
+import { Treatments } from './components/Treatments';
 import selectedToothData from "./data.json";
 import { mapToothVisualization } from './mapToothVisualization';
 
@@ -66,7 +67,11 @@ export default function SelectedTooth() {
               <View paddingTop={2}>
                 {tooth.availableOptions.map((availableOption, index) => (
                   <Tabs.Panel value={`${index}`} key={index}>
-                    {availableOption.name}
+                    {
+                      tooth.type === 'treatment' ? (
+                        <Treatments question={availableOption.question} title={availableOption.title} options={availableOption.options} />
+                      ) : ('Prosthetics UI')
+                    }
                   </Tabs.Panel>
                 ))}
               </View>
