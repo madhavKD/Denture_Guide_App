@@ -32,4 +32,3 @@ vscode:
   extensions:
     - christian-kohler.npm-intellisense
     - eamodio.gitlens
-    - TabNine.tabnine-vscode
