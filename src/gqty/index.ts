@@ -2,6 +2,7 @@
  * GQTY: You can safely modify this file and Query Fetcher based on your needs
  */
 
+import { useAuth } from "@clerk/nextjs";
 import { createReactClient } from "@gqty/react";
 
 import type { QueryFetcher } from "gqty";
@@ -13,18 +14,35 @@ import type {
 } from "./schema.generated";
 import { generatedSchema, scalarsEnumsHash } from "./schema.generated";
 
+// const {getToken} = useAuth();
 const queryFetcher: QueryFetcher = async function (
   query,
   variables,
   fetchOptions
 ) {
+
+  let token;
+  let customHeaders;
+  if (typeof window !== "undefined") {
+    token = JSON.stringify(window.localStorage.getItem('clerk-db-fauna-jwt'));
+    if (token) {
+      customHeaders = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+
+    }
+  } else {
+    customHeaders = {
+      "Content-Type": "application/json",
+    }
+  }
+
+
   // Modify "/api/graphql" if needed
   const response = await fetch(`${process.env.NEXT_PUBLIC_FAUNA_URL_GRAPHQL}`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${process.env.FAUNA_DECHEA__ADMIN__TOKEN}`
-    },
+    headers: customHeaders,
     body: JSON.stringify({
       query,
       variables,
@@ -34,8 +52,8 @@ const queryFetcher: QueryFetcher = async function (
   });
 
   const json = await response.json();
-
   return json;
+  // }
 };
 
 export const client = createClient<

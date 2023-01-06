@@ -5,6 +5,15 @@ import { useQuery } from "../src/gqty";
 
 // TODO We need to rewrite to use SSR
 function Fetch() {
+
+    const { getToken } = useAuth();
+
+    getToken({ template: 'fauna' }).then((token) => { 
+        console.log(token)
+        window.localStorage.setItem("clerk-db-fauna-jwt", JSON.stringify(token));
+    })
+
+
     const query = useQuery({
         // boolean | undefined
         suspense: true,
@@ -18,7 +27,7 @@ function Fetch() {
     });
 
     return (
-        <div>{query.USR_GetUsers().data.map(user => user?.firstName)}</div>
+        <div>{ query.USR_GetUsers().data.map((user) => user?.firstName) } </div>
     );
 }
 
