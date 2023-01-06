@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Tabs, Text, View } from '../../Reshaped/Reshaped';
 import { Treatments } from './components/Treatments';
+import { Products } from './components/Products';
 import selectedToothData from "./data.json";
 import { mapToothVisualization } from './mapToothVisualization';
 
@@ -72,6 +73,10 @@ export default function SelectedTooth() {
                         <Treatments question={availableOption.question} title={availableOption.title} options={availableOption.options} />
                       ) : ('Prosthetics UI')
                     }
+                    {
+                      tooth.type === 'product' && (
+                        <Products data={availableOption} />
+                      )}
                   </Tabs.Panel>
                 ))}
               </View>
