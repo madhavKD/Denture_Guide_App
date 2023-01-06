@@ -1,6 +1,7 @@
 'use-client';
 
-import { Tabs, Text, View, Image, AspectRatio, Button, Container } from '../../../../Reshaped/Reshaped';
+import { Tabs, Text, View, Image, AspectRatio, Button, Container, Popover } from '../../../../Reshaped/Reshaped';
+import { popupData } from '../../../__mock__/data';
 
 type ProductProps = {
     title: string;
@@ -20,8 +21,33 @@ type ProductsProps = {
     products: ProductProps[] | null;
 }
 
+type PopupProps = {
+    data: {
+        name: string;
+        description: string | null | undefined;
+    }[];
+}
+
+export const Popup = () => {
+    const data = popupData;
+    return (<Popover position='top'>
+        <Popover.Trigger>
+            {(attributes) => (<Button attributes={attributes} color='primary' variant='outline' fullWidth> Select For ... </Button>)}
+        </Popover.Trigger>
+        <Popover.Content>
+            {data.options?.map((item, index) => (
+                <View width='300px' direction='row' key={index} paddingStart={4} paddingEnd={4} paddingBottom={3} paddingTop={3} gap={0}>
+                    <View.Item grow>
+                        <Text variant='body-medium-2'>{item.name}</Text>
+                    </View.Item>
+                    <Text variant='body-medium-2'>{item.description}</Text>
+                </View>
+            ))}
+        </Popover.Content>
+    </Popover>)
+}
+
 export const ProductCards = ({ data }: { data: ProductProps[] | null | undefined }) => {
-    console.log(data)
     return (<View direction='row'>
         {data?.map((item, index) => (<View paddingTop={6} paddingEnd={4} paddingStart={4}>
             <View height='416px' width='216px' borderColor='neutral-faded' borderRadius='medium'>
@@ -34,7 +60,8 @@ export const ProductCards = ({ data }: { data: ProductProps[] | null | undefined
                         <Text color='neutral-faded'>{item.description}</Text>
                     </View.Item>
                     <Text variant='body-strong-2' color='primary'>{item.price}</Text>
-                    <Button color='primary' variant='outline' fullWidth> Select For ... </Button>
+                    {/* <Popup data={popupData}> */}
+                    <Popup />
                 </View>
             </View>
         </View>))}
