@@ -114,7 +114,7 @@
                 "products": [
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product1.svg",
                     "description": "Type A, Gerade, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [
@@ -124,7 +124,7 @@
                   },
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product2.svg",
                     "description": "Type A, gewinkelt 15°, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [
@@ -134,7 +134,7 @@
                   },
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product1.svg",
                     "description": "Type A, gewinkelt 15°, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [
@@ -152,7 +152,7 @@
                 "products": [
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product1.svg",
                     "description": "Type A, Gerade, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [
@@ -169,7 +169,7 @@
                 "products": [
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product2.svg",
                     "description": "Type A, Gerade, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [
@@ -186,7 +186,7 @@
                 "products": [
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product2.svg",
                     "description": "Type A, Gerade, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [

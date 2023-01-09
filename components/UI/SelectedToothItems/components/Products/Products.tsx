@@ -5,6 +5,7 @@ import { popupData } from '../../../__mock__/data';
 
 type ProductProps = {
 	title: string;
+    image: string;
 	description: string;
 	price: string;
 }
@@ -52,7 +53,7 @@ export const ProductCards = ({ data }: { data: ProductProps[] | null | undefined
 		{data?.map((item, index) => (<View key={index} paddingTop={6} paddingEnd={4} paddingStart={4}>
 			<View height='416px' width='216px' borderColor='neutral-faded' borderRadius='medium'>
 				<AspectRatio ratio={1 / 1}>
-					<Image src='' borderRadius='medium' fallback='none' />
+					<Image src={item.image} borderRadius='medium' fallback='none' />
 				</AspectRatio>
 				<View padding={4} gap={4} direction='column' height='200px'>
 					<View.Item grow>
