@@ -108,7 +108,7 @@ export const ProductCards = ({
                 <Text color="neutral-faded">{item.description}</Text>
               </View.Item>
               <Text variant="body-strong-2" color="primary">
-                {item.price}
+                {`${item.price} €`}
               </Text>
               {/* <Popup data={popupData}> */}
               <Popup />
