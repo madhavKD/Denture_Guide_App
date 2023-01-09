@@ -49,7 +49,7 @@ export const Popup = () => {
 
 export const ProductCards = ({ data }: { data: ProductProps[] | null | undefined }) => {
 	return (<View direction='row'>
-		{data?.map((item, index) => (<View paddingTop={6} paddingEnd={4} paddingStart={4}>
+		{data?.map((item, index) => (<View key={index} paddingTop={6} paddingEnd={4} paddingStart={4}>
 			<View height='416px' width='216px' borderColor='neutral-faded' borderRadius='medium'>
 				<AspectRatio ratio={1 / 1}>
 					<Image src='' borderRadius='medium' fallback='none' />
