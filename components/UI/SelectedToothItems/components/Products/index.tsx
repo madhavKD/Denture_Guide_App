@@ -1,2 +1,4 @@
 import { ProductCards, Products } from './Products';
-export { ProductCards, Products } 
+import ProductsByCategory from "./ProductsByCategory";
+
+export { ProductCards, Products, ProductsByCategory } 
