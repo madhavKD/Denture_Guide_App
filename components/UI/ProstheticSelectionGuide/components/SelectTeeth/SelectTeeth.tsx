@@ -25,8 +25,6 @@ export default function SelectTeeth() {
   return (
     <View
       direction="row"
-      height="102px"
-      width="100%"
       justify="center"
       align="end"
       gap={5}
