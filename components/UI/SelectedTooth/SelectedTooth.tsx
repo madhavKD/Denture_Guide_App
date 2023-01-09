@@ -25,7 +25,7 @@ export default function SelectedTooth() {
 
             <View direction="column" gap={1} paddingStart={3} paddingTop={2} >
               {tooth.availableOptions.map((availableOption, index) => (
-                <MenuItem key={index} roundedCorners selected={pathname?.includes(`/selected-tooth/${tooth.url}/${availableOption.url}`)} href={`/selected-tooth/${tooth.url}/${availableOption.url}`} >
+                <MenuItem key={index} size="small" roundedCorners selected={pathname?.includes(`/selected-tooth/${tooth.url}/${availableOption.url}`)} href={`/selected-tooth/${tooth.url}/${availableOption.url}`} >
                   <Text variant='body-medium-2' color='neutral-faded'>{availableOption.name}</Text>
                 </MenuItem>
               ))}
