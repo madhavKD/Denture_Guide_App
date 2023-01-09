@@ -71,8 +71,8 @@ export const ProductCards = ({ data }: { data: ProductProps[] | null | undefined
 }
 
 export const Products = ({ data }: { data: ProductsProps }) => {
-  return <Container width='60%'>
-    <View padding={8}>
+  return (
+    <View padding={8} paddingTop={0}>
       <View paddingBottom={8}>
         <Text variant='title-1'>{data.title}</Text>
       </View>
@@ -106,5 +106,5 @@ export const Products = ({ data }: { data: ProductsProps }) => {
         ))}
       </Tabs> : <ProductCards data={data.products} />}
     </View>
-  </Container>
+  )
 }
