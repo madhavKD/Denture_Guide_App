@@ -10,7 +10,7 @@ export default function SelectedToothLayout({ children }: { children: React.Reac
     <>
       <SelectTeeth />
       <View paddingBottom={4} paddingTop={4}>
-      <Text variant='body-medium-2' color='neutral-faded'>Found 29 matches</Text>
+        <Text variant='body-medium-2' color='neutral-faded'>Found 29 matches</Text>
       </View>
       <Divider />
       <View direction="row" gap={5} >

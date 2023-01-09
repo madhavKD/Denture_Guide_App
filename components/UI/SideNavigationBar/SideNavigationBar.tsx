@@ -11,7 +11,9 @@ export default function SideNavigationBar() {
     <View height="100vh" direction='row' attributes={{ style: { position: 'fixed', left: 0, top: 0 } }}>
       <View direction="column" align="center" height="100%" maxWidth="64px"  >
         <View width='64px' height='64px' align="center" justify="center">
-          <Image src="/logo.svg" alt="Dechea" height={23} width={24} />
+          <MenuItem href="/">
+            <Image src="/logo.svg" alt="Dechea" height={23} width={24} />
+          </MenuItem>
         </View>
 
         <View paddingTop={16} paddingBottom={16} gap={2} maxHeight="391px">
@@ -25,16 +27,16 @@ export default function SideNavigationBar() {
 
         <View height="100%" direction="column" justify="end" align="center" paddingTop={2} paddingBottom={2}>
           <View width='64px' height='64px' align="center" justify="center">
-          <SignedOut>
-            <SignInButton mode="modal">
-              <Button variant='ghost'>
-                <Avatar src="/User.svg" alt="Dechea" size={8} />
-              </Button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant='ghost'>
+                  <Avatar src="/User.svg" alt="Dechea" size={8} />
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </View>
         </View>
       </View>
