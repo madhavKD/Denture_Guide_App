@@ -5,7 +5,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs/app-beta';
-import { Button, Reshaped, View } from '../components/Reshaped/Reshaped';
+import { Avatar, Button, Reshaped, View } from '../components/Reshaped/Reshaped';
 import SignInButton from '../components/SignInButton';
 import Basket from '../components/Basket';
 import RootStyleRegistry from './registry';
@@ -31,36 +31,17 @@ export default function RootLayout({
           <RootStyleRegistry>
             <MuiThemeProvider>
               <Reshaped theme="reshaped">
+                <View direction="row" height="100%" width="100%">
+                  <View width="64px">
+                    <SideNavigationBar />
+                  </View>
+                  <View width="calc(100% - 64px)" padding={4}>
+                    {children}
+                  </View>
+                </View>
                 <SignedIn>
                   {/* TODO: Create a new Organization or join an existing one */}
-                  {/* <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
-                    <Basket />
-                    <UserButton />
-                  </View> */}
-                  <View direction="row" height="100%" width="100%">
-                    <View width="64px">
-                      <SideNavigationBar />
-                    </View>
-                    <View width="calc(100% - 64px)" padding={4}>
-                      {children}
-                    </View>
-                  </View>
                 </SignedIn>
-                <SignedOut>
-                  <View
-                    direction={'row'}
-                    justify="end"
-                    padding={2}
-                    gap={2}
-                    align={'stretch'}
-                  >
-                    <Basket />
-                    <SignInButton mode="modal">
-                      <Button>Sign in</Button>
-                    </SignInButton>
-                  </View>
-                  {children}
-                </SignedOut>
               </Reshaped>
             </MuiThemeProvider>
           </RootStyleRegistry>
