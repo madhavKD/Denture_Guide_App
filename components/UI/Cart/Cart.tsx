@@ -39,7 +39,7 @@ export default function Cart() {
   const [activeValue, setActiveValue] = useState(false);
 
   return (
-    <View padding={2} width='100%' direction='column'>
+    <View padding={2} paddingTop={10} width='100%' direction='column'>
       <View
         animated
         borderColor="neutral"
@@ -82,11 +82,11 @@ export default function Cart() {
 
         <View direction="row" paddingTop={3} paddingBottom={3}>
           <View.Item grow>
-            <Text variant="body-2" color="neutral-faded">
+            <Text variant="body-strong-2" color="neutral-faded">
               Total
             </Text>
           </View.Item>
-          <Text variant="body-2">0.00 €</Text>
+          <Text variant="body-strong-2">0.00 €</Text>
         </View>
 
         <View padding={2}>
