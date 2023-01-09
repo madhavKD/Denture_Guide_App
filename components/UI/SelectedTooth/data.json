@@ -210,7 +210,7 @@
                 "products": [
                   {
                     "title": "Gingivaformer PS",
-                    "image": "",
+                    "image": "/product1.svg",
                     "description": "Type A, Gerade, GH 1.5 - 2.5",
                     "price": "55.00",
                     "availableTooth": [
@@ -234,10 +234,11 @@
           {
             "id": 1,
             "name": "Cylindric",
+            "url": "cylindric",
             "products": [
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "zylindrisch, GH 2.0",
                 "price": "55.00",
                 "availableTooth": [
@@ -247,7 +248,7 @@
               },
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product2.svg",
                 "description": "zylindrisch, GH 4.0",
                 "price": "55.00",
                 "availableTooth": [
@@ -257,7 +258,7 @@
               },
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "zylindrisch, GH 6.0",
                 "price": "55.00",
                 "availableTooth": [
@@ -271,10 +272,11 @@
           {
             "id": 1,
             "name": "Wide body",
+            "url": "wide-body",
             "products": [
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "zylindrisch, GH 2.0",
                 "price": "100.00",
                 "availableTooth": [
@@ -284,7 +286,7 @@
               },
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product2.svg",
                 "description": "zylindrisch, GH 4.0",
                 "price": "100.00",
                 "availableTooth": [
@@ -294,7 +296,7 @@
               },
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "zylindrisch, GH 6.0",
                 "price": "100.00",
                 "availableTooth": [
@@ -308,10 +310,11 @@
           {
             "id": 1,
             "name": "Bottleneck",
+            "url": "bottleneck",
             "products": [
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "zylindrisch, GH 2.0",
                 "price": "75.00",
                 "availableTooth": [
@@ -321,7 +324,7 @@
               },
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product2.svg",
                 "description": "zylindrisch, GH 4.0",
                 "price": "75.00",
                 "availableTooth": [
@@ -331,7 +334,7 @@
               },
               {
                 "title": "Gingivaformer PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "zylindrisch, GH 6.0",
                 "price": "75.00",
                 "availableTooth": [
@@ -353,7 +356,7 @@
         "products": [
           {
             "title": "Provisorisches Abutment PS",
-            "image": "",
+            "image": "/product1.svg",
             "description": "",
             "price": "55.00",
             "availableTooth": [
@@ -373,10 +376,11 @@
           {
             "id": 1,
             "name": "Analog",
+            "url": "analog",
             "products": [
               {
                 "title": "Abformpfosten PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "geschlossener Löffel",
                 "price": "55.00",
                 "availableTooth": [
@@ -386,7 +390,7 @@
               },
               {
                 "title": "Abformpfosten PS",
-                "image": "",
+                "image": "/product2.svg",
                 "description": "offener Löffel",
                 "price": "55.00",
                 "availableTooth": [
@@ -399,10 +403,11 @@
           {
             "id": 1,
             "name": "Digital",
+            "url": "digital",
             "products": [
               {
                 "title": "Abformpfosten PS",
-                "image": "",
+                "image": "/product1.svg",
                 "description": "geschlossener Löffel",
                 "price": "80.00",
                 "availableTooth": [
@@ -412,7 +417,7 @@
               },
               {
                 "title": "Abformpfosten PS",
-                "image": "",
+                "image": "/product2.svg",
                 "description": "offener Löffel",
                 "price": "80.00",
                 "availableTooth": [
