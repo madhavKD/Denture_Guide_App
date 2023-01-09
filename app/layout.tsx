@@ -1,13 +1,9 @@
 import './globals.css';
 import {
   ClerkProvider,
-  SignedIn,
-  SignedOut,
-  UserButton,
+  SignedIn
 } from '@clerk/nextjs/app-beta';
-import { Avatar, Button, Reshaped, View } from '../components/Reshaped/Reshaped';
-import SignInButton from '../components/SignInButton';
-import Basket from '../components/Basket';
+import { Reshaped, View } from '../components/Reshaped/Reshaped';
 import RootStyleRegistry from './registry';
 import { MuiThemeProvider } from '../components/Mui';
 
