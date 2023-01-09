@@ -11,14 +11,14 @@ type ProductProps = {
 
 type OptionProps = {
     name: string;
-    options: OptionProps[] | null;
-    products: ProductProps[] | null;
+    options?: OptionProps[] | null;
+    products?: ProductProps[] | null;
 }
 
 type ProductsProps = {
     title: string;
-    options: OptionProps[] | null;
-    products: ProductProps[] | null;
+    options?: OptionProps[] | null;
+    products?: ProductProps[] | null;
 }
 
 type PopupProps = {
