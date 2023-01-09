@@ -20,7 +20,7 @@ export default function SelectedTooth({ type }: { type: string }) {
     <View gap={2} align='stretch' paddingTop={2}>
       {selectedToothData.map((tooth, index) => (
         tooth.type === type && (
-          <Tabs value={itemsActiveTab} onChange={onChangeItemTab} itemWidth="equal" variant='pills-elevated' >
+          <Tabs value={itemsActiveTab} onChange={onChangeItemTab} itemWidth="equal" variant='pills-elevated' key={index}>
             <Tabs.List>
               {tooth.availableOptions.map((availableOption, index) => (
                 <Tabs.Item value={`${index}`} key={index}>
