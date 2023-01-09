@@ -3,9 +3,11 @@
     "title": "Implant Properties",
     "type": "treatment",
     "icon": "implant",
+    "url": "implant-properties",
     "availableOptions": [
       {
         "name": "Implant Line",
+        "url": "implant-line",
         "applyOnAllTooth": true,
         "title": "Implant Properties",
         "question": "Implant Line for all implants",
@@ -39,6 +41,7 @@
       },
       {
         "name": "PF diameter",
+        "url": "pf-diameter",
         "applyOnAllTooth": false,
         "title": "Implant Properties",
         "question": "PF Diameter of 14",
@@ -67,6 +70,7 @@
       },
       {
         "name": "Retention type",
+        "url": "retention-type",
         "applyOnAllTooth": true,
         "title": "Implant Properties",
         "question": "Retention Type",
@@ -89,20 +93,24 @@
     "title": "Prosthetics",
     "type": "product",
     "icon": "lock.svg",
+    "url": "prosthetics",
     "availableOptions": [
       {
         "name": "Abutments (0/2)",
         "title": "Abutments",
+        "url": "abutments",
         "startIcon": "",
         "endIcon": "",
         "options": [
           {
             "id": 1,
             "name": "Analog",
+            "url": "analog",
             "options": [
               {
                 "id": 11,
                 "name": "Esthomic",
+                "url": "esthomic",
                 "products": [
                   {
                     "title": "Gingivaformer PS",
@@ -140,6 +148,7 @@
               {
                 "id": 12,
                 "name": "Universal",
+                "url": "universal",
                 "products": [
                   {
                     "title": "Gingivaformer PS",
@@ -156,6 +165,7 @@
               {
                 "id": 13,
                 "name": "Gold-Composite ",
+                "url": "gold-composite",
                 "products": [
                   {
                     "title": "Gingivaformer PS",
@@ -172,6 +182,7 @@
               {
                 "id": 14,
                 "name": "Titanium basis CAD/CAM",
+                "url": "titanium-basis-cad_cam",
                 "products": [
                   {
                     "title": "Gingivaformer PS",
@@ -190,10 +201,12 @@
           {
             "id": 1,
             "name": "Digital",
+            "url": "digital",
             "options": [
               {
                 "id": 11,
                 "name": "Esthomic 2",
+                "url": "esthomic-2",
                 "products": [
                   {
                     "title": "Gingivaformer PS",
@@ -214,6 +227,7 @@
       {
         "name": "Healing Abutments (0/2)",
         "title": "Healing Abutments",
+        "url": "healing-abutments",
         "startIcon": "",
         "endIcon": "",
         "options": [
@@ -333,6 +347,7 @@
       {
         "name": "Temporary Abutments (0/2)",
         "title": "Temporary Abutments",
+        "url": "temporary-abutments",
         "startIcon": "",
         "endIcon": "",
         "products": [
@@ -351,6 +366,7 @@
       {
         "name": "Impressions (0/2)",
         "title": "Impressions",
+        "url": "impressions",
         "startIcon": "",
         "endIcon": "",
         "options": [

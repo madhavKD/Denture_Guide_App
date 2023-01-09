@@ -1,51 +1,37 @@
 
 'use client';
 
-import { useState } from 'react';
-import { Tabs, Text, View } from '../../Reshaped/Reshaped';
-import { Treatments } from './components/Treatments';
-import { Products } from './components/Products';
+import { MenuItem, Text, View } from '../../Reshaped/Reshaped';
 import selectedToothData from "./data.json";
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
-export default function SelectedTooth({ type }: { type: string }) {
-  const [itemsActiveTab, setItemsActiveTab] = useState<string>('0');
 
-  const onChangeItemTab = ({ value }: { value: string }) => {
-    setItemsActiveTab(value);
-  }
 
+
+export default function SelectedTooth() {
+  const pathname = usePathname()
 
   return (
-    <View gap={2} align='stretch' paddingTop={2}>
+
+    <View gap={2} paddingTop={5} direction='column' divided>
       {selectedToothData.map((tooth, index) => (
-        tooth.type === type && (
-          <Tabs value={itemsActiveTab} onChange={onChangeItemTab} itemWidth="equal" variant='pills-elevated' key={index}>
-            <Tabs.List>
+        <>
+          <View key={index} gap={1}>
+            <MenuItem roundedCorners selected={pathname?.includes(`/selected-tooth/${tooth.url}`)} href={`/selected-tooth/${tooth.url}`}>
+              <Text variant='body-medium-2'>
+                {tooth.title}
+              </Text>
+            </MenuItem>
+
+            <View direction="column" gap={1} paddingStart={3} paddingEnd={3} >
               {tooth.availableOptions.map((availableOption, index) => (
-                <Tabs.Item value={`${index}`} key={index}>
-                  <View gap={3} direction='row'>
-                    <Text variant='body-medium-2' color='neutral-faded'>{availableOption.name}</Text>
-                  </View>
-                </Tabs.Item>
-              ))}
-            </Tabs.List>
-            <View paddingTop={2}>
-              {tooth.availableOptions.map((availableOption, index) => (
-                <Tabs.Panel value={`${index}`} key={index}>
-                  {
-                    tooth.type === 'treatment' && 'question' in availableOption && (
-                      <Treatments question={availableOption.question} title={availableOption.title} options={availableOption.options} />
-                    )
-                  }
-                  {
-                    tooth.type === 'product' && (
-                      <Products data={availableOption} />
-                    )}
-                </Tabs.Panel>
+                <MenuItem key={index} roundedCorners selected={pathname?.includes(`/selected-tooth/${tooth.url}/${availableOption.url}`)} href={`/selected-tooth/${tooth.url}/${availableOption.url}`} >
+                  <Text variant='body-medium-2' color='neutral-faded'>{availableOption.name}</Text>
+                </MenuItem>
               ))}
             </View>
-          </Tabs>)
+          </View>
+        </>
       ))}
     </View>
   );
