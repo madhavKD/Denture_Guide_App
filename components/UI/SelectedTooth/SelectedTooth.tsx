@@ -1,23 +1,15 @@
 
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import { Tabs, Text, View } from '../../Reshaped/Reshaped';
 import { Treatments } from './components/Treatments';
 import { Products } from './components/Products';
 import selectedToothData from "./data.json";
-import { mapToothVisualization } from './mapToothVisualization';
+import { useRouter } from 'next/navigation';
 
-export default function SelectedTooth() {
-  const [activeTab, setActiveTab] = useState<string>('0');
+export default function SelectedTooth({ type }: { type: string }) {
   const [itemsActiveTab, setItemsActiveTab] = useState<string>('0');
-
-
-  const onChangeTab = ({ value }: { value: string }) => {
-    setActiveTab(value);
-  }
-
 
   const onChangeItemTab = ({ value }: { value: string }) => {
     setItemsActiveTab(value);
@@ -25,64 +17,36 @@ export default function SelectedTooth() {
 
 
   return (
-    <Tabs value={activeTab} onChange={onChangeTab} itemWidth="equal" variant='pills-elevated'>
-      <Tabs.List>
-        {selectedToothData.map((tooth, index) => {
-          const Icon = mapToothVisualization[tooth.icon as keyof typeof mapToothVisualization]
-          return (
-            <Tabs.Item value={`${index}`} key={index}>
-              <View gap={3} direction='row' align='center'>
-                {
-                  tooth.type === 'treatment' ? (
-                    <View height='24px' width="24px">
-                      <Icon />
-                    </View>
-                  )
-                    : (
-                      <Image src={`/${tooth.icon}`} height={24} width={24} alt={tooth.title} />
+    <View gap={2} align='stretch' paddingTop={2}>
+      {selectedToothData.map((tooth, index) => (
+        tooth.type === type && (
+          <Tabs value={itemsActiveTab} onChange={onChangeItemTab} itemWidth="equal" variant='pills-elevated' >
+            <Tabs.List>
+              {tooth.availableOptions.map((availableOption, index) => (
+                <Tabs.Item value={`${index}`} key={index}>
+                  <View gap={3} direction='row'>
+                    <Text variant='body-medium-2' color='neutral-faded'>{availableOption.name}</Text>
+                  </View>
+                </Tabs.Item>
+              ))}
+            </Tabs.List>
+            <View paddingTop={2}>
+              {tooth.availableOptions.map((availableOption, index) => (
+                <Tabs.Panel value={`${index}`} key={index}>
+                  {
+                    tooth.type === 'treatment' && 'question' in availableOption && (
+                      <Treatments question={availableOption.question} title={availableOption.title} options={availableOption.options} />
                     )
-                }
-                <Text variant='body-strong-2' color='neutral-faded'>{tooth.title}</Text>
-              </View>
-            </Tabs.Item>
-          )
-        })}
-      </Tabs.List>
-
-
-
-      <View gap={2} align='stretch' paddingTop={2}>
-        {selectedToothData.map((tooth, index) => (
-          <Tabs.Panel value={`${index}`} key={index}>
-            <Tabs value={itemsActiveTab} onChange={onChangeItemTab} itemWidth="equal" variant='pills-elevated' >
-              <Tabs.List>
-                {tooth.availableOptions.map((availableOption, index) => (
-                  <Tabs.Item value={`${index}`} key={index}>
-                    <View gap={3} direction='row'>
-                      <Text variant='body-medium-2' color='neutral-faded'>{availableOption.name}</Text>
-                    </View>
-                  </Tabs.Item>
-                ))}
-              </Tabs.List>
-
-              <View paddingTop={2}>
-                {tooth.availableOptions.map((availableOption, index) => (
-                  <Tabs.Panel value={`${index}`} key={index}>
-                    {
-                      tooth.type === 'treatment' && 'question' in availableOption && (
-                        <Treatments question={availableOption.question} title={availableOption.title} options={availableOption.options} />
-                      )
-                    }
-                    {
-                      tooth.type === 'product' && (
-                        <Products data={availableOption} />
-                      )}
-                  </Tabs.Panel>
-                ))}
-              </View>
-            </Tabs>
-          </Tabs.Panel>))}
-      </View>
-    </Tabs>
+                  }
+                  {
+                    tooth.type === 'product' && (
+                      <Products data={availableOption} />
+                    )}
+                </Tabs.Panel>
+              ))}
+            </View>
+          </Tabs>)
+      ))}
+    </View>
   );
 }

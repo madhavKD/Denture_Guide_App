@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 'use client';
 
-import { ProstheticSelectionGuide } from '../components/UI/ProstheticSelectionGuide';
+import { Link } from '../components/Reshaped/Reshaped';
 
 export default function Home() {
   return (
-    <ProstheticSelectionGuide />
+    <Link href='/teeth-diagram'>Teeth Diagram</Link>
   );
 }

@@ -33,14 +33,6 @@ export default function ProstheticSelectionGuide() {
 
   return (
     <>
-      <View paddingBottom={20}>
-        <Text variant="body-strong-1" color="neutral-faded">
-          Prosthetic selection guide
-        </Text>
-        <Text color="disabled" variant="caption-2">
-          by Dechea
-        </Text>
-      </View>
       <TeethDiagram toggleToothSelection={toggleToothSelection} />
       <Container width="85%">
         <View
@@ -67,7 +59,6 @@ export default function ProstheticSelectionGuide() {
 
           {Boolean(selectedTreatments.length) && <SelectProstheticsButton />}
         </View>
-       
       </Container>
     </>
   );
