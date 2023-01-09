@@ -6,7 +6,7 @@ import { SelectedTooth } from '../../components/UI/SelectedTooth';
 export default function SelectedToothLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <View direction="row" gap={2} divided>
+      <View direction="row" gap={5} >
         <View width="300px">
           <SelectedTooth />
         </View>

@@ -1,7 +1,7 @@
 'use-client';
 
 import Image from "next/image";
-import { Tabs, Text, View, Button, Container, Popover } from '../../../../Reshaped/Reshaped';
+import { Tabs, Text, View, Button, Container, Popover, AspectRatio } from '../../../../Reshaped/Reshaped';
 import { popupData } from '../../../__mock__/data';
 
 type ProductProps = {
@@ -53,7 +53,9 @@ export const ProductCards = ({ data }: { data: ProductProps[] | null | undefined
   return (<View direction='row'>
     {data?.map((item, index) => (<View key={index} paddingTop={6} paddingEnd={4} paddingStart={4}>
       <View height='416px' width='216px' borderColor='neutral-faded' borderRadius='medium'>
-        <Image src={item.image} width={20} height={20} alt={item.title} />
+        <AspectRatio ratio={1 / 1}>
+          <Image src={item.image} width={216} height={216} alt={item.title} />
+        </AspectRatio>
         <View padding={4} gap={4} direction='column' height='200px'>
           <View.Item grow>
             <Text variant='body-strong-2'>{item.title}</Text>
