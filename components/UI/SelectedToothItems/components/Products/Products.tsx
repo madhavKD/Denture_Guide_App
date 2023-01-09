@@ -23,7 +23,7 @@ type OptionProps = {
   name: string;
   options?: OptionProps[] | null;
   products?: ProductProps[] | null;
-  url: string;
+  url?: string;
 };
 
 type ProductsProps = {
