@@ -7,7 +7,6 @@ import { Products } from './components/Products';
 import selectedToothData from "../SelectedTooth/data.json";
 
 export function SelectedToothItems({ params }: { params: any }) {
-  const section = params.section;
   const item = params.item; 
 
   return (
