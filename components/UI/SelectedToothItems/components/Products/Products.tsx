@@ -5,17 +5,18 @@ import {
   Text,
   View,
   Button,
+  MenuItem,
   Popover,
   AspectRatio,
   Tabs,
 } from "../../../../Reshaped/Reshaped";
-import { popupData } from "../../../__mock__/data";
 
 type ProductProps = {
   title: string;
   image: string;
   description: string;
   price: string;
+  availableTooth: string[];
 };
 
 type OptionProps = {
@@ -31,14 +32,10 @@ type ProductsProps = {
 };
 
 type PopupProps = {
-  data: {
-    name: string;
-    description: string | null | undefined;
-  }[];
+  availableTeeth: string[]
 };
 
-export const Popup = () => {
-  const data = popupData;
+export const Popup = ({ availableTeeth }: PopupProps) => {
   return (
     <Popover position="top">
       <Popover.Trigger>
@@ -55,23 +52,20 @@ export const Popup = () => {
         )}
       </Popover.Trigger>
       <Popover.Content>
-        {data.options?.map((item, index) => (
-          <View
-            width="300px"
-            direction="row"
-            key={index}
-            paddingStart={4}
-            paddingEnd={4}
-            paddingBottom={3}
-            paddingTop={3}
-            gap={0}
-          >
-            <View.Item grow>
-              <Text variant="body-medium-2">{item.name}</Text>
-            </View.Item>
-            <Text variant="body-medium-2">{item.description}</Text>
-          </View>
-        ))}
+        <View width='300px'>
+          <MenuItem>
+            Select for all teeth
+          </MenuItem>
+          {availableTeeth?.map((item, index) => (
+            <MenuItem key={index} startSlot={
+              <Text align='start' variant="body-medium-2">{item}</Text>
+            } endSlot={
+              <Text variant="body-medium-2">3.8 mm</Text>
+            }>
+              {' '}
+            </MenuItem>
+          ))}
+        </View>
       </Popover.Content>
     </Popover>
   );
@@ -108,8 +102,7 @@ export const ProductCards = ({
               <Text variant="body-strong-2" color="primary">
                 {`${item.price} €`}
               </Text>
-              {/* <Popup data={popupData}> */}
-              <Popup />
+              {'availableTooth' in item && <Popup availableTeeth={item.availableTooth} />}
             </View>
           </View>
         </View>
