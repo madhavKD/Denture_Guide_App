@@ -1,16 +1,15 @@
-'use-client';
+"use-client";
 
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import Image from "next/image";
 import {
   Text,
   View,
   Button,
   Popover,
   AspectRatio,
-  MenuItem,
-} from '../../../../Reshaped/Reshaped';
-import { popupData } from '../../../__mock__/data';
+  Tabs,
+} from "../../../../Reshaped/Reshaped";
+import { popupData } from "../../../__mock__/data";
 
 type ProductProps = {
   title: string;
@@ -23,7 +22,6 @@ type OptionProps = {
   name: string;
   options?: OptionProps[] | null;
   products?: ProductProps[] | null;
-  url?: string;
 };
 
 type ProductsProps = {
@@ -51,8 +49,8 @@ export const Popup = () => {
             variant="outline"
             fullWidth
           >
-            {' '}
-            Select For ...{' '}
+            {" "}
+            Select For ...{" "}
           </Button>
         )}
       </Popover.Trigger>
@@ -120,22 +118,46 @@ export const ProductCards = ({
   );
 };
 
-export const Products = ({ data, urlPrefix }: { data: ProductsProps, urlPrefix: string }) => {
-  const pathname = usePathname()
-
+export const Products = ({ data }: { data: ProductsProps }) => {
   return (
     <View padding={8} paddingTop={0}>
       <View paddingBottom={8}>
         <Text variant="title-1">{data.title}</Text>
       </View>
       {Boolean(data.options?.length) ? (
-        <View direction="row" gap={2} divided>
+        <Tabs itemWidth="equal" variant="pills-elevated">
+          <Tabs.List>
+            {data.options?.map((option, index) => (
+              <Tabs.Item value={option.name} key={index}>
+                <Text variant="body-medium-2">{option.name}</Text>
+              </Tabs.Item>
+            ))}
+          </Tabs.List>
           {data.options?.map((option, index) => (
-            <MenuItem roundedCorners key={index} href={`${urlPrefix}/${option.url}`} selected={pathname?.includes(`${urlPrefix}/${option.url}`)}>
-              <Text variant="body-medium-2">{option.name}</Text>
-            </MenuItem>
+            <Tabs.Panel value={option.name} key={index}>
+              {Boolean(option.options?.length) ? (
+                <Tabs itemWidth="equal">
+                  <Tabs.List>
+                    {option.options?.map((subOption, subIndex) => (
+                      <Tabs.Item value={subOption.name} key={subIndex}>
+                        <Text variant="body-medium-2">{subOption.name}</Text>
+                      </Tabs.Item>
+                    ))}
+                  </Tabs.List>
+                  {option.options?.map((subOption, subIndex) => (
+                    <Tabs.Panel key={subIndex} value={subOption.name}>
+                      <ProductCards data={subOption?.products} />
+                    </Tabs.Panel>
+                  ))}
+                </Tabs>
+              ) : (
+                <Tabs.Panel key={index} value={option.name}>
+                  <ProductCards data={option?.products} />
+                </Tabs.Panel>
+              )}
+            </Tabs.Panel>
           ))}
-        </View>
+        </Tabs>
       ) : (
         <ProductCards data={data.products} />
       )}

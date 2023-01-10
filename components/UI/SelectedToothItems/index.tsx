@@ -25,7 +25,7 @@ export function SelectedToothItems({ params }: { params: any }) {
                   }
                   {
                     tooth.type === 'product' && (
-                      <Products data={availableOption} urlPrefix={`/selected-tooth/${section}/${item}`} />
+                      <Products data={availableOption} />
                     )}
                 </>
               )}
