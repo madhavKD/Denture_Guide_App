@@ -5,7 +5,6 @@ import options from './data.json';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { ProstheticsQuestions } from './components/ProstheticsQuestions';
 import { TreatmentQuestions } from './components/TreatmentQuestions';
-import { EmployeeDropdown } from './components/EmployeeDropdown';
 import Image from 'next/image';
 
 
@@ -38,7 +37,7 @@ export default function SelectedTooth() {
                   <View.Item grow>
                     {(option.type === 'product' && 'startIcon' in availableOption) ? (
                       <ProstheticsQuestions
-                        key={availableOptionIndex}
+                        key={`${optionIndex}-${availableOptionIndex}`}
                         availableOptionIndex={availableOptionIndex}
                         option={availableOption}
                         optionIndex={optionIndex}
@@ -50,7 +49,7 @@ export default function SelectedTooth() {
                       />
                     ) : (
                       <TreatmentQuestions
-                        key={availableOptionIndex}
+                        key={`${optionIndex}-${availableOptionIndex}`}
                         availableOptionIndex={availableOptionIndex}
                         option={availableOption}
                         optionIndex={optionIndex}
@@ -62,9 +61,6 @@ export default function SelectedTooth() {
                       />
                     )}
                   </View.Item>
-                  {option.type !== 'treatment' && (
-                    <EmployeeDropdown />
-                  )}
                 </View>
               ))}
             </View>

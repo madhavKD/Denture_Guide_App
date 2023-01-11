@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import {
   Text,
   DropdownMenu,
@@ -18,7 +18,10 @@ type EmployeeType = {
 export const EmployeeDropdown = () => {
   const [employees, setEmployees] = useState<EmployeeType[]>(drData);
 
-  const handleChange = (e: { name: string, value: string }) => {
+  const handleChange = (e: {event: ChangeEvent<HTMLInputElement>; name: string, value: string }) => {
+    e.event.preventDefault();
+    e.event.stopPropagation();
+
     let filteredEmployees;
     if (e.value) {
       filteredEmployees = drData.filter(
@@ -32,6 +35,8 @@ export const EmployeeDropdown = () => {
 
   const handleMenuItemClick = (event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => {
     console.log("event -> ", event)
+    event.preventDefault()
+    event.stopPropagation()
   };
 
   return (
