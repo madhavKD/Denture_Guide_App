@@ -11,6 +11,16 @@ a {
   text-decoration: none;
 }
 
+.menuItemLink {
+  border: 1px solid transparent !important;
+}
+
+.menuItemLink:hover {
+  color: #2066e4;
+  background-color: #eaf1fd !important;
+  border: 1px solid #2066e4 !important;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -99,7 +99,7 @@
         "name": "Abutments (0/2)",
         "title": "Abutments",
         "url": "abutments",
-        "startIcon": "",
+        "startIcon": "/abutments.svg",
         "endIcon": "",
         "options": [
           {
@@ -228,7 +228,7 @@
         "name": "Healing Abutments (0/2)",
         "title": "Healing Abutments",
         "url": "healing-abutments",
-        "startIcon": "",
+        "startIcon": "/heatingAbutments.svg",
         "endIcon": "",
         "options": [
           {
@@ -351,7 +351,7 @@
         "name": "Temporary Abutments (0/2)",
         "title": "Temporary Abutments",
         "url": "temporary-abutments",
-        "startIcon": "",
+        "startIcon": "/temporaryAbutments.svg",
         "endIcon": "",
         "products": [
           {
@@ -370,7 +370,7 @@
         "name": "Impressions (0/2)",
         "title": "Impressions",
         "url": "impressions",
-        "startIcon": "",
+        "startIcon": "/impressions.svg",
         "endIcon": "",
         "options": [
           {
