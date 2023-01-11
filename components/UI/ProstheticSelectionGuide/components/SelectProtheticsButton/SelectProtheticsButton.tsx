@@ -19,7 +19,7 @@ export default function SelectProstheticsButton() {
         rounded
         startIcon={
           <Image
-            src="./selectProsthetics.svg"
+            src="/selectProsthetics.svg"
             height={18}
             width={13}
             alt="Select prosthetics"

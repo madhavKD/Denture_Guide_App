@@ -23,3 +23,12 @@ export const data = [
 ];
 
 export const popupData = {'options': [{ 'name': 'Select for all teeth', 'description': '' }, { 'name': '14', 'description': '4.3 mm' }, { 'name': '43', 'description': '3.8 mm' }]}
+
+export let drData = [
+  {
+    name: 'Dr. Endo',
+  },
+  {
+    name: 'Exspensive',
+  },
+];
