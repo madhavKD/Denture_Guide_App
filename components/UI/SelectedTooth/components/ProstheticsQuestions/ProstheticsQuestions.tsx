@@ -10,7 +10,7 @@ type ProstheticsQuestionsProps = {
   pathname: string | null; questionNumber: number; optionNumber: number; optionIndex: number; availableOptionIndex: number; questionUrl: string; option: { url: string; startIcon: string; name: string }; disabled: boolean;
 }
 
-export const ProstheticsQuestions = ({ pathname, questionNumber, optionNumber, optionIndex, availableOptionIndex, questionUrl, option, ,disabled  }: ProstheticsQuestionsProps) => {
+export const ProstheticsQuestions = ({ pathname, questionNumber, optionNumber, optionIndex, availableOptionIndex, questionUrl, option ,disabled  }: ProstheticsQuestionsProps) => {
   const router = useRouter()
 
   const handleClick = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>, url: string) => {
