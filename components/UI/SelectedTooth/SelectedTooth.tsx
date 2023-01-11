@@ -2,10 +2,11 @@
 
 import { MenuItem, Text, View } from '../../Reshaped/Reshaped';
 import options from './data.json';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { ProstheticsQuestions } from './components/ProstheticsQuestions';
 import { TreatmentQuestions } from './components/TreatmentQuestions';
 import { EmployeeDropdown } from './components/EmployeeDropdown';
+import Image from 'next/image';
 
 
 export default function SelectedTooth() {
@@ -14,6 +15,7 @@ export default function SelectedTooth() {
   const step = params.get('step')?.split('-')
   const questionNum = Number(step?.[0]);
   const optionNum = Number(step?.[1])
+  const disabled = [false, true];
 
   return (
     <View gap={2} paddingTop={5} direction="column" divided>
@@ -21,6 +23,8 @@ export default function SelectedTooth() {
         <>
           <View key={optionIndex} gap={1}>
             <MenuItem
+              disabled={disabled[optionIndex]}
+              startSlot={disabled[optionIndex] ? <Image width={24} height={24} src='/lock.svg' alt='Locked Options' /> : <></>}
               roundedCorners
               selected={pathname?.includes(`/selected-tooth/${option.url}`)}
               href={`/selected-tooth/${option.url}`}
@@ -42,6 +46,7 @@ export default function SelectedTooth() {
                         questionNumber={questionNum}
                         questionUrl={option.url}
                         pathname={pathname}
+                        disabled={disabled[optionIndex]}
                       />
                     ) : (
                       <TreatmentQuestions
@@ -53,6 +58,7 @@ export default function SelectedTooth() {
                         questionNumber={questionNum}
                         questionUrl={option.url}
                         pathname={pathname}
+                        disabled={disabled[optionIndex]}
                       />
                     )}
                   </View.Item>
