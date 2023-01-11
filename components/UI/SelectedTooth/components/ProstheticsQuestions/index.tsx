@@ -1,0 +1,1 @@
+export { ProstheticsQuestions } from './ProstheticsQuestions'

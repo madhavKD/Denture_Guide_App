@@ -1,12 +1,13 @@
 'use client';
 
-import { MenuItem, Text, View, Radio } from '../../Reshaped/Reshaped';
-import selectedToothData from './data.json';
-import { useRouter, useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+import { MenuItem, Text, View } from '../../Reshaped/Reshaped';
+import options from './data.json';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { ProstheticsQuestions } from './components/ProstheticsQuestions';
+import { TreatmentQuestions } from './components/TreatmentQuestions';
 
 export default function SelectedTooth() {
-  const router = useRouter();
+  const pathname = usePathname();
   const params = useSearchParams();
   const step = params.get('step')?.split('-')
   const questionNum = Number(step?.[0]);
@@ -14,41 +15,42 @@ export default function SelectedTooth() {
 
   return (
     <View gap={2} paddingTop={5} direction="column" divided>
-      {selectedToothData.map((tooth, toothIndex) => (
+      {options.map((option, optionIndex) => (
         <>
-          <View key={toothIndex} gap={1}>
+          <View key={optionIndex} gap={1}>
             <MenuItem
               roundedCorners
-              selected={toothIndex <= questionNum}
-              href={`/selected-tooth/${tooth.url}`}
+              selected={pathname?.includes(`/selected-tooth/${option.url}`)}
+              href={`/selected-tooth/${option.url}`}
             >
-              <Text variant="body-medium-2">{tooth.title}</Text>
+              <Text variant="body-medium-2">{option.title}</Text>
             </MenuItem>
 
             <View direction="column" gap={1} paddingStart={3} paddingTop={2}>
-              {tooth.availableOptions.map((availableOption, optionIndex) => (
-                <MenuItem
-                  key={optionIndex}
-                  size="small"
-                  roundedCorners
-                  selected={(toothIndex <= questionNum && optionIndex <= optionNum) || toothIndex < questionNum}
-                  href={`/selected-tooth/${tooth.url}/${availableOption.url}`}
-                  className="menuItemLink"
-                  startIcon={
-                    'startIcon' in availableOption ? (
-                      <Image
-                        src={availableOption.startIcon}
-                        height={16}
-                        width={16}
-                        alt="Img"
-                      />
-                    ) : (
-                      <></>
-                    )
-                  }
-                >
-                  <Text variant="body-medium-2">{availableOption.name}</Text>
-                </MenuItem>
+              {option.availableOptions.map((availableOption, availableOptionIndex) => (
+                (option.type === 'product' && 'startIcon' in availableOption) ? (
+                  <ProstheticsQuestions
+                    key={availableOptionIndex}
+                    availableOptionIndex={availableOptionIndex}
+                    option={availableOption}
+                    optionIndex={optionIndex}
+                    optionNumber={optionNum}
+                    questionNumber={questionNum}
+                    questionUrl={option.url}
+                    pathname={pathname}
+                  />
+                ) : (
+                  <TreatmentQuestions
+                    key={availableOptionIndex}
+                    availableOptionIndex={availableOptionIndex}
+                    option={availableOption}
+                    optionIndex={optionIndex}
+                    optionNumber={optionNum}
+                    questionNumber={questionNum}
+                    questionUrl={option.url}
+                    pathname={pathname}
+                  />
+                )
               ))}
             </View>
           </View>
@@ -58,15 +60,3 @@ export default function SelectedTooth() {
   );
 }
 
-
-
-{/* <View key={optionIndex}>
-                  <Radio
-                    value={`${availableOption.name}-${optionIndex}-${toothIndex}`}
-                    name={`${availableOption.name}-${optionIndex}-${toothIndex}`}
-                    checked={(toothIndex <= questionNum && optionIndex <= optionNum) || toothIndex < questionNum}
-                    onChange={() => router.push(`/selected-tooth/${tooth.url}/${availableOption.url}?step=${toothIndex}-${optionIndex}`)}
-                  >
-                    {availableOption.name}
-                  </Radio>
-                </View> */}

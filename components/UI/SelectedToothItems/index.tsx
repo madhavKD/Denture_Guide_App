@@ -12,14 +12,11 @@ export function SelectedToothItems({ params }: { params: any }) {
   const section = params.section;
   const item = params.item;
 
-  const handleSelectItem = (questionIndex: number, optionIndex: number) => {
-    if (selectedToothData[questionIndex].availableOptions.length - 1 <= optionIndex) {
-      router.push(`/selected-tooth/${selectedToothData[questionIndex + 1].url}/${selectedToothData[questionIndex + 1].availableOptions[0].url}?step=${questionIndex + 1}-0`)
-    } else {
-      router.push(`/selected-tooth/${selectedToothData[questionIndex].url}/${selectedToothData[questionIndex].availableOptions[optionIndex + 1].url}?step=${questionIndex}-${optionIndex + 1}`, { forceOptimisticNavigation: true})
-    }
+   const handleSelectItem = (questionIndex: number, optionIndex: number) => {
+   
   }
 
+ 
   return (
     <View gap={2} align='stretch' paddingTop={2}>
       {selectedToothData.map((tooth, toothIndex) => (
