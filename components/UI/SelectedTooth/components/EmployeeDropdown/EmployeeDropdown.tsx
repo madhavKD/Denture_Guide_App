@@ -4,7 +4,8 @@ import {
   Text,
   DropdownMenu,
   TextField,
-  View
+  View,
+  Button
 } from '../../../../Reshaped/Reshaped';
 
 import { DefaultAvatar } from '../../../svg/DefaultAvatar/DefaultAvatar';
@@ -43,7 +44,7 @@ export const EmployeeDropdown = ({ disabled }: { disabled: boolean }) => {
     <DropdownMenu position="bottom-end" width='300px'>
       <DropdownMenu.Trigger>
         {(attributes) => (
-          <DefaultAvatar attributes={attributes}  />
+          <Button disabled={disabled} color='primary' rounded variant='ghost' size="small" startIcon={<DefaultAvatar />} attributes={attributes} />
         )}
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>

@@ -16,7 +16,7 @@ export const ProstheticsQuestions = ({ questionNumber, optionNumber, optionIndex
   const handleClick = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>, url: string) => {
     const target = e.target;
 
-    if (target instanceof SVGCircleElement || target instanceof SVGPathElement) {
+    if (target instanceof SVGCircleElement || target instanceof SVGPathElement || ('type' in target && target?.type == 'button')) {
       e.preventDefault()
       e.stopPropagation()
       return;
@@ -27,11 +27,11 @@ export const ProstheticsQuestions = ({ questionNumber, optionNumber, optionIndex
 
   return (
     <MenuItem
-      // disabled={disabled}
+      disabled={disabled}
       size="small"
       roundedCorners
       selected={(optionIndex <= questionNumber && availableOptionIndex <= optionNumber) || optionIndex < questionNumber}
-      // className={!disabled && "menuItemLink"}
+      className={!disabled && "menuItemLink"}
       startIcon={
         <Image
           src={option.startIcon}
