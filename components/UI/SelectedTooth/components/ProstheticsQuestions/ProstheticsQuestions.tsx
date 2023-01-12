@@ -41,7 +41,7 @@ export const ProstheticsQuestions = ({ questionNumber, optionNumber, optionIndex
         />
       }
       onClick={(e) => handleClick(e, `/selected-tooth/${questionUrl}/${option.url}?step=${optionIndex}-${availableOptionIndex}`)}
-      endSlot={<EmployeeDropdown disabled />}
+      endSlot={<EmployeeDropdown disabled={disabled} />}
     >
       <Text variant="body-medium-2">{option.name}</Text>
     </MenuItem>

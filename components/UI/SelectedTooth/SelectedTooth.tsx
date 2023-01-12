@@ -13,7 +13,6 @@ export default function SelectedTooth() {
   const step = params.get('step')?.split('-')
   const questionNum = Number(step?.[0]);
   const optionNum = Number(step?.[1])
-  const disabled = [false, true];
 
   return (
     <View gap={2} paddingTop={5} direction="column" divided>
@@ -21,8 +20,8 @@ export default function SelectedTooth() {
         <>
           <View key={optionIndex} gap={1}>
             <MenuItem
-              disabled={disabled[optionIndex]}
-              startSlot={disabled[optionIndex] ? <Image width={24} height={24} src='/lock.svg' alt='Locked Options' /> : <></>}
+              disabled={(questionNum || 0) !== optionIndex}
+              startSlot={(questionNum || 0) !== optionIndex ? <Image width={24} height={24} src='/lock.svg' alt='Locked Options' /> : <></>}
               roundedCorners
               selected={optionIndex <= questionNum}
               href={`/selected-tooth/${option.url}`}
@@ -43,7 +42,7 @@ export default function SelectedTooth() {
                         optionNumber={optionNum}
                         questionNumber={questionNum}
                         questionUrl={option.url}
-                        disabled={disabled[optionIndex]}
+                        disabled={(questionNum || 0) !== optionIndex}
                       />
                     ) : (
                       <TreatmentQuestions
@@ -54,7 +53,7 @@ export default function SelectedTooth() {
                         optionNumber={optionNum}
                         questionNumber={questionNum}
                         questionUrl={option.url}
-                        disabled={disabled[optionIndex]}
+                        disabled={(questionNum || 0) !== optionIndex}
                       />
                     )}
                   </View.Item>
