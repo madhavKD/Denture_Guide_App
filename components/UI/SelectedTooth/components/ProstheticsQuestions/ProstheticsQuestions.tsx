@@ -14,9 +14,9 @@ export const ProstheticsQuestions = ({ questionNumber, optionNumber, optionIndex
   const router = useRouter()
 
   const handleClick = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>, url: string) => {
-    const target = e.target;
+    const target = e.target as HTMLInputElement;
 
-    if (target instanceof SVGCircleElement || target instanceof SVGPathElement || ('type' in target && target?.type == 'button')) {
+    if (target.matches('#prostheticsInviteEmployeeAvatar, #prostheticsInviteEmployeeAvatar *')) {
       e.preventDefault()
       e.stopPropagation()
       return;

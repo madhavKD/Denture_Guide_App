@@ -44,7 +44,7 @@ export const EmployeeDropdown = ({ disabled }: { disabled: boolean }) => {
     <DropdownMenu position="bottom-end" width='300px'>
       <DropdownMenu.Trigger>
         {(attributes) => (
-          <Button disabled={disabled} color='primary' rounded variant='ghost' size="small" startIcon={<DefaultAvatar />} attributes={attributes} />
+          <Button disabled={disabled} color='primary' rounded variant='ghost' size="small" startIcon={<DefaultAvatar />} attributes={{...attributes, id: 'prostheticsInviteEmployeeAvatar'}} />
         )}
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
