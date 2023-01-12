@@ -15,10 +15,10 @@ type EmployeeType = {
   name: string
 }
 
-export const EmployeeDropdown = () => {
+export const EmployeeDropdown = ({ disabled }: { disabled: boolean }) => {
   const [employees, setEmployees] = useState<EmployeeType[]>(drData);
 
-  const handleChange = (e: {event: ChangeEvent<HTMLInputElement>; name: string, value: string }) => {
+  const handleChange = (e: { event: ChangeEvent<HTMLInputElement>; name: string, value: string }) => {
     e.event.preventDefault();
     e.event.stopPropagation();
 
@@ -43,7 +43,7 @@ export const EmployeeDropdown = () => {
     <DropdownMenu position="bottom-end" width='300px'>
       <DropdownMenu.Trigger>
         {(attributes) => (
-          <DefaultAvatar attributes={attributes} />
+          <DefaultAvatar attributes={attributes}  />
         )}
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>

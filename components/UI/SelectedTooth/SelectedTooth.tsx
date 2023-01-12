@@ -2,14 +2,13 @@
 
 import { MenuItem, Text, View } from '../../Reshaped/Reshaped';
 import options from './data.json';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { ProstheticsQuestions } from './components/ProstheticsQuestions';
 import { TreatmentQuestions } from './components/TreatmentQuestions';
 import Image from 'next/image';
 
 
 export default function SelectedTooth() {
-  const pathname = usePathname();
   const params = useSearchParams();
   const step = params.get('step')?.split('-')
   const questionNum = Number(step?.[0]);
@@ -25,7 +24,7 @@ export default function SelectedTooth() {
               disabled={disabled[optionIndex]}
               startSlot={disabled[optionIndex] ? <Image width={24} height={24} src='/lock.svg' alt='Locked Options' /> : <></>}
               roundedCorners
-              selected={pathname?.includes(`/selected-tooth/${option.url}`)}
+              selected={optionIndex <= questionNum}
               href={`/selected-tooth/${option.url}`}
             >
               <Text variant="body-medium-2">{option.title}</Text>
@@ -44,7 +43,6 @@ export default function SelectedTooth() {
                         optionNumber={optionNum}
                         questionNumber={questionNum}
                         questionUrl={option.url}
-                        pathname={pathname}
                         disabled={disabled[optionIndex]}
                       />
                     ) : (
@@ -56,7 +54,6 @@ export default function SelectedTooth() {
                         optionNumber={optionNum}
                         questionNumber={questionNum}
                         questionUrl={option.url}
-                        pathname={pathname}
                         disabled={disabled[optionIndex]}
                       />
                     )}
