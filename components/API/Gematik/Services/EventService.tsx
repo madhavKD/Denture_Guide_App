@@ -3,13 +3,8 @@ import { ContextType } from "../Interfaces/ContextType";
 
 const eventServiceURL = '/eventservice';
 
-export const getResourceInformation = (contextType: ContextType, baseUrl: string) => {
-
-	const requestUrl = `${baseUrl}/${eventServiceURL}`;
-
-	const soapAction = "http://ws.gematik.de/conn/EventService/v7.2#GetResourceInformation";
-
-	const xmlBody = `<?xml version="1.0" encoding="UTF-8"?>
+const xmlBodyTemplate = (context: string) => {
+	return `<?xml version="1.0" encoding="UTF-8"?>
 		<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
 		    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 		    <SOAP-ENV:Header />
@@ -24,15 +19,50 @@ export const getResourceInformation = (contextType: ContextType, baseUrl: string
 		        xmlns:ns7="urn:oasis:names:tc:dss:1.0:core:schema"
 		        xmlns:ns8="http://www.w3.org/2000/09/xmldsig#"
 		        xmlns:ns9="http://ws.gematik.de/conn/CardTerminalInfo/v8.0">
-		        <ns11:GetResourceInformation>
+		        ${context}
+		    </S:Body>
+		</S:Envelope>`;
+};
+
+export const getResourceInformation = (contextType: ContextType, baseUrl: string) => {
+
+	const soapAction = "http://ws.gematik.de/conn/EventService/v7.2#GetResourceInformation";
+
+	const context = `<ns11:GetResourceInformation>
 		            <ns6:Context>
 		                <ns3:MandantId>${contextType.mandantId}</ns3:MandantId>
 		                <ns3:ClientSystemId>${contextType.clientSystemId}</ns3:ClientSystemId>
 		                <ns3:WorkplaceId>${contextType.workplaceId}</ns3:WorkplaceId>
 		            </ns6:Context>
-		        </ns11:GetResourceInformation>
-		    </S:Body>
-		</S:Envelope>`;
+		        </ns11:GetResourceInformation>`;
+
+	return callGematikApi(baseUrl, soapAction, context);
+}
+
+export const subscribe = (contextType: ContextType, baseUrl: string) => {
+
+	const soapAction = "http://ws.gematik.de/conn/EventService/v7.2#Subscribe";
+
+	const context = `<ns11:Subscribe>
+	            <ns6:Context>
+	               <ns3:MandantId>${contextType.mandantId}</ns3:MandantId>
+		             <ns3:ClientSystemId>${contextType.clientSystemId}</ns3:ClientSystemId>
+		             <ns3:WorkplaceId>${contextType.workplaceId}</ns3:WorkplaceId>
+	            </ns6:Context>
+	            <ns11:Subscription>
+	               <ns11:EventTo>cetp://127.0.0.1:9999</ns11:EventTo>
+	               <ns11:Topic>CARD</ns11:Topic>
+	            </ns11:Subscription>
+	        </ns11:Subscribe>`;
+
+	return callGematikApi(baseUrl, soapAction, context);
+}
+
+function callGematikApi(baseUrl: string, soapAction: string, context: string) {
+
+	const requestUrl = `${baseUrl}/${eventServiceURL}`;
+
+	const xmlBody = xmlBodyTemplate(context);
 
 	return fetchGematikApi({requestUrl, soapAction, xmlBody});
 }
