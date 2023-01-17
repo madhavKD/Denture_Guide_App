@@ -1,7 +1,7 @@
 import { fetchGematikApi } from './FetchGematikApi';
 import { ContextType } from "../Interfaces/ContextType";
 
-const eventServiceURL = '/eventservice';
+const eventServiceURL = 'eventservice';
 
 const xmlBodyTemplate = (context: string) => {
 	return `<?xml version="1.0" encoding="UTF-8"?>
