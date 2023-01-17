@@ -71,3 +71,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 1. Replace [Doppler Setup](.gitpod.yml#L10) with --project \<YourProject> --config \<YourConfig>
 2. Replace [npm Bit config](.gitpod.yml#L11) with @\<bit-account-name>
+3. i18n
