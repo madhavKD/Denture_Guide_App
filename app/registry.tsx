@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { useServerInsertedHTML } from "next/navigation";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "@dechea/orc.design-tokens.theme.theme";
 
 export default function RootStyleRegistry({
   children,
@@ -27,5 +29,11 @@ export default function RootStyleRegistry({
     );
   });
 
-  return <CacheProvider value={cache}>{children}</CacheProvider>;
+  return (
+    <CacheProvider value={cache}>
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
+    </CacheProvider>
+  );
 }
