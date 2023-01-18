@@ -1,7 +1,5 @@
-import { Button, View, ViewProps, Placeholder, Image, ImageProps } from "../components/Reshaped/Reshaped";
-import FetchUsers from "../components/FetchUsers";
-import { Container } from "reshaped";
-import type { ContainerProps } from "reshaped";
+import { Button, Icon, View} from "../components/Reshaped/Reshaped";
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -9,9 +7,9 @@ export default function Home() {
       
     <View align="center" backgroundColor="neutral">
 
-      <View position="absolute">
+      <View position="absolute" width="100vw" height={20} >
         <Image
-          src="https://github.com/mmailaender/Mana/blob/main/public/Blurred%20elipse.png?raw=true" />
+          src="/elipse.png" alt="elipse" fill={true} style={{ filter: 'blur(4px)' }} />
       </View>
 
       <View paddingTop={4} >
@@ -19,8 +17,7 @@ export default function Home() {
       </View>
 
       <View position="absolute" insetStart={4} insetTop={4}>
-        <Image
-          src="https://raw.githubusercontent.com/mmailaender/Mana/91239c7af52291c4af638be24a399171a88cc9a2/public/Polygon%201.svg" />
+        {/* <Icon src="/Polygon.svg" /> */}
       </View>
 
     </View>

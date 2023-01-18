@@ -20,26 +20,8 @@ export default function RootLayout({
           */}
         <head />
         <body>
-          <Reshaped theme="reshaped">
-            <SignedIn>
-              {/* TODO: Create a new Organization or join an existing one */}
-              <View direction={'row'} align={'center'} justify={'end'} padding={2} gap={2}>
-                <Basket />
-                <UserButton />
-              </View>
+          <Reshaped theme="reshaped" defaultColorMode='dark'>
               {children}
-            </SignedIn>
-            <SignedOut>
-              <View direction={'row'} justify="end" padding={2} gap={2} align={'stretch'}>
-                <Basket />
-                <SignInButton mode='modal'>
-                  <Button>
-                    Sign in
-                  </Button>
-                </SignInButton>
-              </View>
-              {children}
-            </SignedOut>
           </Reshaped >
         </body>
       </html>
