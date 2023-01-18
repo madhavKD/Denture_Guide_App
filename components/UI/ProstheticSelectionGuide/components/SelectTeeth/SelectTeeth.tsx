@@ -11,10 +11,10 @@ const Tooth = ({ tooth, ...props }: any) => {
 
   return (
     <View align="center">
-      <View>
+      <View height="80px" width="23px">
         <ToothValue {...props} />
       </View>
-      <View height="13px" paddingTop={2}>
+      <View height="12px" paddingTop={2}>
         {tooth}
       </View>
     </View>
