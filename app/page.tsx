@@ -1,10 +1,10 @@
-import { View } from "../components/Reshaped/Reshaped";
-import FetchUsers from "../components/FetchUsers";
+/** @jsxImportSource @emotion/react */
+'use client';
+
+import { Link } from '../components/Reshaped/Reshaped';
 
 export default function Home() {
   return (
-    <View>
-      {/* <FetchUsers /> */}
-    </View>
-  )
+    <Link href='/teeth-diagram'>Teeth Diagram</Link>
+  );
 }

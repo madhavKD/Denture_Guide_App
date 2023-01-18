@@ -1,0 +1,1 @@
+export { TeethDiagram } from './TeethDiagram';

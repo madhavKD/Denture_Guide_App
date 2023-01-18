@@ -8,7 +8,17 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.menuItemLink {
+  border: 1px solid transparent !important;
+}
+
+.menuItemLink:hover {
+  color: #2066e4;
+  background-color: #eaf1fd !important;
+  border: 1px solid #2066e4 !important;
 }
 
 * {
@@ -24,4 +34,12 @@ a {
     color: white;
     background: black;
   }
+}
+
+.cl-card {
+  width: 100%;
+}
+
+.cl-createOrganization-root {
+  width: 100%;
 }

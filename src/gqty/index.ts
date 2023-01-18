@@ -5,14 +5,14 @@
 import { useAuth } from "@clerk/nextjs";
 import { createReactClient } from "@gqty/react";
 
-import type { QueryFetcher } from "gqty";
-import { createClient } from "gqty";
+import type { QueryFetcher } from 'gqty';
+import { createClient } from 'gqty';
 import type {
   GeneratedSchema,
   SchemaObjectTypes,
   SchemaObjectTypesNames,
-} from "./schema.generated";
-import { generatedSchema, scalarsEnumsHash } from "./schema.generated";
+} from './schema.generated';
+import { generatedSchema, scalarsEnumsHash } from './schema.generated';
 
 // const {getToken} = useAuth();
 const queryFetcher: QueryFetcher = async function (
@@ -47,7 +47,7 @@ const queryFetcher: QueryFetcher = async function (
       query,
       variables,
     }),
-    mode: "cors",
+    mode: 'cors',
     ...fetchOptions,
   });
 
@@ -108,4 +108,4 @@ export {
   prepareQuery,
 };
 
-export * from "./schema.generated";
+export * from './schema.generated';
