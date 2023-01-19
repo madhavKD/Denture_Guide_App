@@ -7,7 +7,7 @@ import {
   lowerJawLeftTeeth,
   lowerJawRightTeeth,
 } from '@dechea/hes.constants.tooth-position';
-import { Container, View } from 'reshaped';
+import { View } from 'reshaped';
 import { Teeth } from './components/Teeth';
 import { TeethDiagramProps } from './types/types';
 

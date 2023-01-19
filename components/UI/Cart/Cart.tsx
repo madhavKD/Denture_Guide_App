@@ -1,4 +1,6 @@
 'use client';
+
+import { useState } from 'react';
 import {
   Accordion,
   View,
@@ -6,7 +8,6 @@ import {
   Text,
   Button,
 } from '../../Reshaped/Reshaped';
-import { useState } from 'react';
 
 const CartSvg = () => (
   <svg
