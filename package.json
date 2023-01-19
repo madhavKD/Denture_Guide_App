@@ -21,6 +21,7 @@
     "graphql": "^16.6.0",
     "latest": "^0.2.0",
     "next": "^13.1.0",
+    "pako": "^2.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reshaped": "file:node_modules_offline/reshaped-react-v1.9.0.tgz",
@@ -28,6 +29,7 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "@gqty/cli": "^3.3.0"
+    "@gqty/cli": "^3.3.0",
+    "@types/pako": "^2.0.0"
   }
 }

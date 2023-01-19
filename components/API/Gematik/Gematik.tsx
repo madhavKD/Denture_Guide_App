@@ -1,5 +1,8 @@
 import { ContextType } from './Interfaces/ContextType';
 import {getCards, getResourceInformation, subscribe} from './Services/EventService'
+import {string} from "prop-types";
+import {readVSD} from "./Services/VSDService";
+import {decompressZippedByteArray} from "./Tools/Tools";
 
 const API_PROTOCOL = 'http';
 const API_URL = '0.0.0.0';
@@ -8,6 +11,7 @@ const API_PORT = 80;
 let smcbCardHandle: string;
 let ehcCardHandle: string;
 let ctID: string;
+let mappedSubscriptionAndContextType = new Map<string, ContextType>();
 
 enum CardTypeType {
 	EGK = 'EGK',
@@ -85,14 +89,37 @@ export const getResourceInformationForContext = async (contextType: ContextType,
 		if (currCard.CardType == CardTypeType.SMC_B) {
 			console.debug(`\tStoring '${currCard.CardHolderName}' SMC-B card handle for future use...`);
 			smcbCardHandle = currCard.CardHandle;
+			mappedSubscriptionAndContextType.set(smcbCardHandle, contextType);
 			ctID = currCard.CtId;
 		}
 		if (currCard.CardType == CardTypeType.EGK || currCard.CardType == CardTypeType.KVK) {
 			console.debug(`\tStoring '${currCard.CardHolderName}' EHC card handle for future use...`);
 			ehcCardHandle = currCard.CardHandle;
+			mappedSubscriptionAndContextType.set(ehcCardHandle, contextType);
 		}
 	})
 
+	console.info("--------------------------");
+
+	console.info("4. STEP");
+	console.info("ReadVSDResponse");
+
+	body = await readVSD(ehcCardHandle, smcbCardHandle, false, contextType, requestUrl);
+	const vsdRsp = body.ReadVSDResponse;
+
+	console.info("SOAP Status: " + vsdRsp.VSD_Status.Status);
+
+	console.info('PersoenlicheVersichertendaten:');
+	const pvd = decompressZippedByteArray(vsdRsp.PersoenlicheVersichertendaten);
+	console.log(pvd)
+
+	console.info('AllgemeineVersicherungsdaten:');
+	const avd = decompressZippedByteArray(vsdRsp.AllgemeineVersicherungsdaten);
+	console.log(avd)
+
+	console.info('GeschuetzteVersichertendaten:');
+	const gvd = decompressZippedByteArray(vsdRsp.GeschuetzteVersichertendaten);
+	console.log(gvd)
 }
 
 export default function FetchResourceInformation() {
@@ -104,9 +131,10 @@ export default function FetchResourceInformation() {
 
 		CheckConnection(url);
 
-			return (
-				<p>blub</p>
-			)
+		return (
+			<p>blub</p>
+		)
+
 	}
 
 	return (
