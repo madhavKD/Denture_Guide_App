@@ -58,6 +58,21 @@ export const subscribe = (contextType: ContextType, baseUrl: string) => {
 	return callGematikApi(baseUrl, soapAction, context);
 }
 
+export const getCards = (contextType: ContextType, baseUrl: string) => {
+
+	const soapAction = "http://ws.gematik.de/conn/EventService/v7.2#GetCards";
+
+	const context = `<ns11:GetCards>
+            <ns6:Context>
+                <ns3:MandantId>${contextType.mandantId}</ns3:MandantId>
+		            <ns3:ClientSystemId>${contextType.clientSystemId}</ns3:ClientSystemId>
+		            <ns3:WorkplaceId>${contextType.workplaceId}</ns3:WorkplaceId>
+            </ns6:Context>
+        </ns11:GetCards>`;
+
+	return callGematikApi(baseUrl, soapAction, context);
+}
+
 function callGematikApi(baseUrl: string, soapAction: string, context: string) {
 
 	const requestUrl = `${baseUrl}/${eventServiceURL}`;
