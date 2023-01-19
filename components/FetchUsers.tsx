@@ -1,17 +1,17 @@
 "use client"
-import { useAuth } from "@clerk/nextjs";
+// import { useAuth } from "@clerk/nextjs";
 import { Suspense } from "react";
 import { useQuery } from "../src/gqty";
 
 // TODO We need to rewrite to use SSR
 function Fetch() {
 
-    const { getToken } = useAuth();
+    // const { getToken } = useAuth();
 
-    getToken({ template: 'fauna' }).then((token) => { 
-        console.log(token)
-        window.localStorage.setItem("clerk-db-fauna-jwt", JSON.stringify(token));
-    })
+    // getToken({ template: 'fauna' }).then((token) => { 
+    //     console.log(token)
+    //     window.localStorage.setItem("clerk-db-fauna-jwt", JSON.stringify(token));
+    // })
 
 
     const query = useQuery({
