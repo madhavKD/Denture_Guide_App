@@ -1,7 +1,6 @@
 'use client';
 
-// import Image from "next/image";
-import React from "react";
+import Image from "next/image";
 import { Avatar, Divider, View, MenuItem, Button, Icon } from "../../Reshaped/Reshaped";
 
 export default function SideNavigationBar() {
@@ -10,16 +9,16 @@ export default function SideNavigationBar() {
       <View direction="column" align="center" height="100%" maxWidth="64px"  >
         <View width='64px' height='64px' align="center" justify="center">
           <MenuItem href="/">
-            {/* <Image src="/logo.svg" alt="Dechea" height={23} width={24} /> */}
+            <Image src="/logo.svg" alt="Dechea" height={23} width={24} />
           </MenuItem>
         </View>
 
         <View paddingTop={16} paddingBottom={16} gap={2} maxHeight="391px">
           <MenuItem href="/" selected >
-            {/* <Image src="/prostheticGuide.svg" alt="Prosthetic selection guide" height={24} width={24} /> */}
+            <Image src="/prostheticGuide.svg" alt="Prosthetic selection guide" height={24} width={24} />
           </MenuItem>
           <MenuItem >
-            {/* <Image src="/checkout.svg" alt="Ordered Prosthetic" height={24} width={24} /> */}
+            <Image src="/checkout.svg" alt="Ordered Prosthetic" height={24} width={24} />
           </MenuItem>
         </View>
 

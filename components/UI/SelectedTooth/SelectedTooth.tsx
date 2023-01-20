@@ -5,7 +5,7 @@ import options from './data.json';
 import { useSearchParams } from 'next/navigation';
 import { ProstheticsQuestions } from './components/ProstheticsQuestions';
 import { TreatmentQuestions } from './components/TreatmentQuestions';
-// import Image from 'next/image';
+import Image from 'next/image';
 
 
 export default function SelectedTooth() {
@@ -21,7 +21,7 @@ export default function SelectedTooth() {
           <View key={optionIndex} gap={1}>
             <MenuItem
               disabled={(questionNum || 0) !== optionIndex}
-              // startSlot={(questionNum || 0) !== optionIndex ? <Image width={24} height={24} src='/lock.svg' alt='Locked Options' /> : <></>}
+              startSlot={(questionNum || 0) !== optionIndex ? <Image width={24} height={24} src='/lock.svg' alt='Locked Options' /> : <></>}
               roundedCorners
               selected={optionIndex <= questionNum}
               href={`/selected-tooth/${option.url}`}
