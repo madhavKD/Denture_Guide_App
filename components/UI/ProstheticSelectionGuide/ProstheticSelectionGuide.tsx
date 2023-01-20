@@ -6,6 +6,7 @@ import { TeethDiagram } from '../../teeth-diagram';
 import { TreatmentCard } from '../TreatmentCard';
 import { data } from '../__mock__/data';
 import { SelectProstheticsButton } from './components/SelectProtheticsButton';
+import './styles.css'
 
 export default function ProstheticSelectionGuide() {
   const [selectedTooth, setSelectedTooth] = useState<number[]>([]);
@@ -33,9 +34,11 @@ export default function ProstheticSelectionGuide() {
 
   return (
     <>
-      <View direction={'row'} justify={'center'}>
-        <View width={{s:"100%", xl:"80%"}} direction={'column'}>
-          <TeethDiagram toggleToothSelection={toggleToothSelection} />
+      <View direction={'row'} justify={'center'} className="responsive-container">
+        <View width="100%" direction={'column'} align="center">
+          <View align="center" width="100%">
+            <TeethDiagram toggleToothSelection={toggleToothSelection} />
+          </View>
           <View
             gap={10}
             direction="row"
