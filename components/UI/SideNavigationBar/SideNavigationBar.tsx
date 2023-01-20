@@ -1,9 +1,6 @@
 'use client';
 
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
-import { UserButton } from "@clerk/nextjs/app-beta";
 import Image from "next/image";
-import React from "react";
 import { Avatar, Divider, View, MenuItem, Button, Icon } from "../../Reshaped/Reshaped";
 
 export default function SideNavigationBar() {
@@ -27,7 +24,10 @@ export default function SideNavigationBar() {
 
         <View height="100%" direction="column" justify="end" align="center" paddingTop={2} paddingBottom={2}>
           <View width='64px' height='64px' align="center" justify="center">
-            <SignedOut>
+            <Button variant='ghost'>
+              <Avatar src="/User.svg" alt="Dechea" size={8} />
+            </Button>
+            {/* <SignedOut>
               <SignInButton mode="modal">
                 <Button variant='ghost'>
                   <Avatar src="/User.svg" alt="Dechea" size={8} />
@@ -36,7 +36,7 @@ export default function SideNavigationBar() {
             </SignedOut>
             <SignedIn>
               <UserButton />
-            </SignedIn>
+            </SignedIn> */}
           </View>
         </View>
       </View>

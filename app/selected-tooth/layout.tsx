@@ -1,9 +1,10 @@
 
-import React from 'react';
+import dynamic from 'next/dynamic';
 import { View, Text, Divider } from '../../components/Reshaped/Reshaped'
-import { SelectedTooth } from '../../components/UI/SelectedTooth';
-import { Cart } from '../../components/UI/Cart';
-import { SelectTeeth } from '../../components/UI/ProstheticSelectionGuide/components/SelectTeeth';
+
+const SelectedTooth = dynamic(() => import('../../components/UI/SelectedTooth').then((comp) => comp.SelectedTooth))
+const Cart = dynamic(() => import('../../components/UI/Cart').then((comp) => comp.Cart))
+const SelectTeeth = dynamic(() => import('../../components/UI/ProstheticSelectionGuide/components/SelectTeeth').then((comp) => comp.SelectTeeth))
 
 export default function SelectedToothLayout({ children }: { children: React.ReactNode }) {
   return (

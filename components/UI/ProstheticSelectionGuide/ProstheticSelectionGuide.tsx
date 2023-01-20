@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { View, Container } from 'reshaped';
+import { View } from 'reshaped';
 import { TeethDiagram } from '../../teeth-diagram';
 import { TreatmentCard } from '../TreatmentCard';
 import { data } from '../__mock__/data';

@@ -2,7 +2,6 @@
  * GQTY: You can safely modify this file and Query Fetcher based on your needs
  */
 
-import { useAuth } from "@clerk/nextjs";
 import { createReactClient } from "@gqty/react";
 
 import type { QueryFetcher } from 'gqty';
