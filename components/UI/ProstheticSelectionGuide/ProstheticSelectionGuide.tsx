@@ -34,8 +34,10 @@ export default function ProstheticSelectionGuide() {
   return (
     <>
       <View direction={'row'} justify={'center'}>
-        <View width={{s:"100%", xl:"80%"}} direction={'column'}>
-          <TeethDiagram toggleToothSelection={toggleToothSelection} />
+        <View width={{s:"100%", xl:"80%"}} direction={'column'} align="center">
+          <View align="center" width="100%">
+            <TeethDiagram toggleToothSelection={toggleToothSelection} />
+          </View>
           <View
             gap={10}
             direction="row"

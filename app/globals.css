@@ -1,3 +1,6 @@
+--rs-viewport-l
+--rs-viewport-xl
+
 html,
 body {
   padding: 0;
@@ -42,4 +45,21 @@ a {
 
 .cl-createOrganization-root {
   width: 100%;
+}
+
+.teeth-diagram-container {
+  margin: 0px 40px 0px;
+}
+
+@media (min-width: 1280px) {
+  .teeth-diagram-container {
+    margin: 0px 80px 0px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .teeth-diagram-container {
+    margin: 0px 140px 0px;
+    max-width: 1920px;
+  }
 }
