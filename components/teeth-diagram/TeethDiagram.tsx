@@ -10,17 +10,16 @@ import {
 import { View } from 'reshaped';
 import { Teeth } from './components/Teeth';
 import { TeethDiagramProps } from './types/types';
-import './styles.css';
 
 export const TeethDiagram = ({ toggleToothSelection }: TeethDiagramProps) => {
   return (
-    <View direction="column" gap={5} align="center" divided className="teeth-diagram-container" width="100%">
+    <View direction="column" gap={5} align="center" divided maxWidth="1920px" width="100%">
       {/* upper jaw */}
       <View.Item columns={12}>
-        <View direction="row" gap={8} wrap={false}>
+        <View direction="row" gap={6} wrap={false}>
           {/* Upper left */}
           <View.Item columns={6}>
-            <View direction="row" gap={8} align="end" justify="end">
+            <View direction="row" gap={6} align="end" justify="end">
               <Teeth
                 jawType="upper"
                 teeth={upperJawLeftTeeth}
@@ -31,7 +30,7 @@ export const TeethDiagram = ({ toggleToothSelection }: TeethDiagramProps) => {
 
           {/* Upper right */}
           <View.Item columns={6}>
-            <View direction="row" gap={8} align="end" justify="start">
+            <View direction="row" gap={6} align="end" justify="start">
               <Teeth
                 jawType="upper"
                 teeth={upperJawRightTeeth}
@@ -44,10 +43,10 @@ export const TeethDiagram = ({ toggleToothSelection }: TeethDiagramProps) => {
 
       {/* lower jaw */}
       <View.Item columns={12}>
-        <View direction="row" gap={8} wrap={false}>
+        <View direction="row" gap={6} wrap={false}>
           {/* Lower left */}
           <View.Item columns={6}>
-            <View direction="row" gap={8} align="start" justify="end">
+            <View direction="row" gap={6} align="start" justify="end">
               <Teeth
                 jawType="lower"
                 teeth={lowerJawLeftTeeth}
@@ -58,7 +57,7 @@ export const TeethDiagram = ({ toggleToothSelection }: TeethDiagramProps) => {
 
           {/* Lower right */}
           <View.Item columns={6}>
-            <View direction="row" gap={8} align="start" justify="start">
+            <View direction="row" gap={6} align="start" justify="start">
               <Teeth
                 jawType="lower"
                 teeth={lowerJawRightTeeth}
