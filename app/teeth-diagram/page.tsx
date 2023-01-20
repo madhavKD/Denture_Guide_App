@@ -1,8 +1,9 @@
 'use-client';
 
-
-import { ProstheticSelectionGuide } from '../../components/UI/ProstheticSelectionGuide';
+import dynamic from 'next/dynamic';
 import { View, Text } from '../../components/Reshaped/Reshaped'
+
+const ProstheticSelectionGuide = dynamic(() => import('../../components/UI/ProstheticSelectionGuide').then((comp) => comp.ProstheticSelectionGuide))
 
 export default function TeethDiagram() {
   return (
