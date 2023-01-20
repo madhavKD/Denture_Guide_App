@@ -1,7 +1,7 @@
 'use client'
-import { Icon, Text, View } from "../../components/Reshaped/Reshaped";
+import { Text, View } from "../../components/Reshaped/Reshaped";
 // import { CreateOrganization } from "@clerk/nextjs";
-import Image from "next/image";
+// import Image from "next/image";
 
 
 export default function NewAccount() {

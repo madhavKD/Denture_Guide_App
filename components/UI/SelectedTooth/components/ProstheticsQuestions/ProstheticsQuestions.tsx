@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+// import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { MenuItem, Text } from "reshaped";
@@ -32,14 +32,14 @@ export const ProstheticsQuestions = ({ questionNumber, optionNumber, optionIndex
       roundedCorners
       selected={(optionIndex <= questionNumber && availableOptionIndex <= optionNumber) || optionIndex < questionNumber}
       className={!disabled && "menuItemLink"}
-      startIcon={
-        <Image
-          src={option.startIcon}
-          height={16}
-          width={16}
-          alt={option.name}
-        />
-      }
+      // startIcon={
+      //   <Image
+      //     src={option.startIcon}
+      //     height={16}
+      //     width={16}
+      //     alt={option.name}
+      //   />
+      // }
       onClick={(e) => handleClick(e, `/selected-tooth/${questionUrl}/${option.url}?step=${optionIndex}-${availableOptionIndex}`)}
       endSlot={<EmployeeDropdown disabled={disabled} />}
     >

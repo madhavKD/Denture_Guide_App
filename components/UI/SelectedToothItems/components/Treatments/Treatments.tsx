@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+// import Image from "next/image";
 import { KeyboardEvent, MouseEvent } from "react";
 import { Card, MenuItem, Text, View } from "reshaped";
 
@@ -31,7 +31,7 @@ export default function Treatments({ question, title, options, onSelectItem }: T
             <Card key={`${option.id}-${option.name}-${index}`} padding={0}>
               <MenuItem roundedCorners onClick={onSelectItem}>
                 <View direction="row" gap={2}>
-                  {option.image && <Image src={`/${option.image}`} alt={option.name} height={24} width={24} />}
+                  {/* {option.image && <Image src={`/${option.image}`} alt={option.name} height={24} width={24} />} */}
                   <Text variant="body-strong-2">{option.name}</Text>
                 </View>
               </MenuItem>

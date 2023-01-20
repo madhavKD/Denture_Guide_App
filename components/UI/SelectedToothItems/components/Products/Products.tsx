@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import {
   Text,
   View,
@@ -86,14 +86,14 @@ export const ProductCards = ({
             borderColor="neutral-faded"
             borderRadius="medium"
           >
-            <AspectRatio ratio={1 / 1}>
+            {/* <AspectRatio ratio={1 / 1}>
               <Image
                 src={item.image}
                 width={216}
                 height={216}
                 alt={item.title}
               />
-            </AspectRatio>
+            </AspectRatio> */}
             <View padding={4} gap={4} direction="column" height="200px">
               <View.Item grow>
                 <Text variant="body-strong-2">{item.title}</Text>
