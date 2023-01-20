@@ -10,6 +10,7 @@ import {
 import { View } from 'reshaped';
 import { Teeth } from './components/Teeth';
 import { TeethDiagramProps } from './types/types';
+import './styles.css';
 
 export const TeethDiagram = ({ toggleToothSelection }: TeethDiagramProps) => {
   return (
