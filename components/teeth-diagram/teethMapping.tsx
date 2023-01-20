@@ -1,3 +1,5 @@
+'use client'
+
 import { Tooth11 } from './components/Tooth11';
 import { Tooth12 } from './components/Tooth12';
 import { Tooth13 } from './components/Tooth13';

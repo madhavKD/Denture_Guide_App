@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 
 export function SelectedToothItems({ params }: { params: any }) {
   const router = useRouter()
-  const section = params.section;
   const item = params.item;
 
   const handleSelectItem = (questionIndex: number, optionIndex: number) => {
