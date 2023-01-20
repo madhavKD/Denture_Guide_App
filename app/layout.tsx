@@ -3,7 +3,6 @@ import 'reshaped/themes/reshaped/theme.css';
 
 import { Reshaped, View } from '../components/Reshaped/Reshaped';
 import RootStyleRegistry from './registry';
-import { MuiThemeProvider } from '../components/Mui';
 import { SideNavigationBar } from '../components/UI/SideNavigationBar';
 
 export default function RootLayout({
@@ -20,7 +19,6 @@ export default function RootLayout({
         <head />
         <body>
           <RootStyleRegistry>
-            <MuiThemeProvider>
               <Reshaped theme="reshaped">
                 <View direction="row" height="100%" width="100%">
                   <View width="64px">
@@ -31,7 +29,6 @@ export default function RootLayout({
                   </View>
                 </View>
               </Reshaped>
-            </MuiThemeProvider>
           </RootStyleRegistry>
         </body>
       </html>
