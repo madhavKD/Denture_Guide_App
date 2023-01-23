@@ -1,8 +1,7 @@
 'use client'
-import { Icon, Text, View } from "../../components/Reshaped/Reshaped";
-// import { CreateOrganization } from "../../components/Clerk";
-import { CreateOrganization } from "@clerk/nextjs";
-import Image from "next/image";
+import { Text, View } from "../../components/Reshaped/Reshaped";
+// import { CreateOrganization } from "@clerk/nextjs";
+// import Image from "next/image";
 
 
 export default function NewAccount() {
@@ -10,7 +9,7 @@ export default function NewAccount() {
         <View gap={5} direction={"column"} align={"center"} >
             <View.Item columns={5}>
                 <View align={"center"}>
-                    <CreateOrganization />
+                    {/* <CreateOrganization /> */}
                 </View>
             </View.Item>
             <View.Item columns={5}>

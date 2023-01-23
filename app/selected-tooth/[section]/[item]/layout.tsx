@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { SelectedToothItems } from '../../../../components/UI/SelectedToothItems'
+import dynamic from 'next/dynamic'
+const SelectedToothItems = dynamic(() => import('../../../../components/UI/SelectedToothItems').then((comp) => comp.SelectedToothItems))
 
 export default function ItemLayout({ params, children }: { params: any, children: React.ReactNode }) {
   return (
