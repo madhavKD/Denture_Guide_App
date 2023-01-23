@@ -1,9 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React from 'react';
 import { View } from 'reshaped';
-import { teethMapping } from '../../teethMapping';
 import { TeethProps, ToothProps } from '../../types/types';
+
+// @ts-ignore
+const teethMapping: object = dynamic(() => import("../../teethMapping").then((comp) => comp.teethMapping), {ssr: false});
 
 const Tooth = ({ tooth, ...props }: ToothProps) => {
   const Tooth: React.FC = teethMapping[tooth as keyof typeof teethMapping];
