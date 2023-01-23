@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -16,7 +15,7 @@ const MissingCrown11 = dynamic(() => import('@dechea/hes.ui.foundations.teeth.vi
 
 
 export const Tooth11 = ({ implant = false, artificial = false, root = true }: { implant: boolean, artificial: boolean, root: boolean }) => {
- 
+
   return (
     <Container>
       <Tooth>

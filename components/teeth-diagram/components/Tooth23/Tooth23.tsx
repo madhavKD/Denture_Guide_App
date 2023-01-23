@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 'use client';
 import dynamic from 'next/dynamic';
 const Tooth = dynamic(() => import('@dechea/hes.ui.foundations.teeth.areas.tooth').then((tooth) => tooth.Tooth23), { ssr: false });
